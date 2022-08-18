@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Main-Welcome{
+    margin: 0;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.H1-Welcome{
+    color: rgba(8, 8, 92, 0.596);
+    text-shadow: 3px 3px 5px rgba(33,146,255,0.69);
+    margin: 0;
+}
+
+.P-Welcome{
+    color: rgba(27, 27, 168, 0.993);
+    font-weight: bold;
+}
+
+.Button-Welcome{
+    width: 7rem;
+    height: 3rem;
+    border-radius: 4px;
+    background-color: rgb(47, 119, 228);
+    border: 2px solid;
+    color: white;
+    font-weight: bold;
+}
+
