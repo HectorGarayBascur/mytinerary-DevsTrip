@@ -1,23 +1,52 @@
 import '../styles/Carousel.css'
+import Arrow from './Arrow'
+import {useEffect, useState} from 'react'
 
 export default function Carousel(props) {
     const range = props.range
-    const start = 0
-    const end = start + range
+    const [start, setStart] = useState(0)
+    const [end, setEnd] = useState(start + range)
+    const [intervalId, setIntervalId] = useState()
     const items = props.data
-
+    const interval = props.interval * 1000
 
     const itemView = (item) => (
         <div className='item'>
-            <img src={item.url} alt="img" />
+            <img src={item.url} alt={item.title} />
             <p>{item.title}</p>
         </div>
     )
 
+    useEffect(() => {
+        let id = setInterval(function () {
+            next()
+        }, interval)
+
+        setIntervalId(id)
+
+        return () => clearInterval(intervalId);
+    }, [start])
+
+    function previous () {
+        if (start >= range) {
+            setStart(start-range)
+            setEnd(end-range)
+        }
+    }
+
+    function next() {
+        if (end < items.length) {
+            setStart (start+range)
+            setEnd (end+range)
+        }
+    }
+
     return (
         <div>
             <div className='slide'>
+                <Arrow icon={"<"} click={previous} />
                 {items.slice(start, end).map(itemView)}
+                <Arrow icon={">"} click={next} />
             </div>
         </div>
     )
