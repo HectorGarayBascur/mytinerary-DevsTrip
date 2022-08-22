@@ -1,0 +1,38 @@
+.slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    height: 30vh;
+    font-family: 'Cabin Condensed', sans-serif;
+    color: #4da1b4;
+}
+
+.item > img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    box-shadow: 0 0 50px black;  
+    transition: 0s;  
+    filter: grayscale(100%);
+}
+
+.item > img:hover{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 0%;
+    transform: 0.7s;
+    border-radius: 5px;
+    transition-duration: 0.7s;
+    filter: none;
+}
+
+.container{
+    border-top: 3px solid rgba(28,110,164,0.42);
+    border-radius: 20px 20px 0px 0px;
+}
+
+
+
+
+
