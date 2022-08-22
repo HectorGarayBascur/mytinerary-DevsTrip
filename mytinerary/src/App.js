@@ -1,18 +1,21 @@
 import './App.css';
-import Welcome from './components/Welcome.js';
-import Footer from "./components/Footer.js";
-import EventsCarousel from './components/EventsCarousel';
-import Videos from './components/Videos';
-import FooterUnderConstructionLayout from "./layouts/FooterUnderConstructionLayout"
+import Cities from './pages/Cities';
+import NewCities from "./pages/NewCities"
+import Hero from "./pages/Hero"
+import UnderConstruction from './pages/UnderContrstruction';
+
+
 
 function App() {
   return (
     <div className="App">
-        <Welcome />
-        <Videos />
-        <EventsCarousel />
-        <Footer/>
-        <FooterUnderConstructionLayout/>
+
+      {/*   <Hero/> */}
+      {/* <Cities/> */}
+      {/*  <NewCities/> */}
+      <UnderConstruction/>
+      
+
     </div>
   );
 }
