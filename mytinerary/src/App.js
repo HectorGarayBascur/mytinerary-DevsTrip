@@ -1,11 +1,15 @@
 import './App.css';
 import Welcome from './components/Welcome.js';
-import Footer from "./components/Footer.js"
+import Footer from "./components/Footer.js";
+import EventsCarousel from './components/EventsCarousel';
+import Videos from './components/Videos';
 
 function App() {
   return (
     <div className="App">
         <Welcome />
+        <Videos />
+        <EventsCarousel />
         <Footer/>
     </div>
   );
