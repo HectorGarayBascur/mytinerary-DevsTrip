@@ -1,21 +1,21 @@
-
 .footStyles {
-    background-color: black;
-    color: white;
-    height: 20vh;
+    background-color: #F2F2F2;
+    height: 15vh;
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-evenly;
     align-items: center;
+    font-family: 'Cabin Condensed', sans-serif;
 }
 
 .colOne {
-width: 30%;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #73B1BF;
 }
 
 .colTwo {
@@ -25,10 +25,42 @@ justify-content: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: #73B1BF;
 }
 
 .colThree {
     width: 30%;
     display: flex;
     justify-content: space-evenly;
+    color: #73B1BF;
+}
+
+.colOne:hover{
+    color: #735755;
+}
+
+.colTwo:hover{
+    color: #735755;
+}
+
+.bi-whatsapp:hover{
+    color: #735755;
+}
+
+.bi-twitter:hover{
+    color: #735755;
+}
+
+.bi-instagram:hover{
+    color: #735755;
+}
+
+.a-footer{
+    text-decoration: none;
+    color: #73B1BF;
+}
+
+.a-footer:hover{
+    text-decoration: none;
+    color: #735755;
 }
