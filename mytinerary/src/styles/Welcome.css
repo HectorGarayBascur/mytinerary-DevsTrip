@@ -1,37 +1,41 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.Main-Welcome{
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed&display=swap');
+
+.Main-Welcome {
     margin: 0;
-    height: 80vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 20vh;
+    background-color: white;
+    gap: 2rem;
+    border-bottom: 7px solid rgba(28,110,164,0.42);
+    border-radius: 0px 0px 0px 0px;
 }
 
-.H1-Welcome{
-    color: rgba(8, 8, 92, 0.596);
-    text-shadow: 3px 3px 5px rgba(33,146,255,0.69);
-    margin: 0;
-}
-
-.P-Welcome{
-    color: rgba(27, 27, 168, 0.993);
-    font-weight: bold;
-}
-
-.Button-Welcome{
+.container-logo>img {
     width: 7rem;
-    height: 3rem;
-    border-radius: 4px;
-    background-color: rgb(47, 119, 228);
-    border: 2px solid;
-    color: white;
-    font-weight: bold;
+    height: 7rem;
 }
 
+.H1-Welcome {
+    color: #73B1BF;
+    /* text-shadow: 3px 3px 5px rgba(33,146,255,0.69); */
+    margin: 0;
+    font-family: 'Cabin Condensed', sans-serif;
+}
+
+.P-Welcome {
+    color: #73B1BF;
+    font-weight: bold;
+    font-family: 'Cabin Condensed', sans-serif;
+}
+
+
+
+  
