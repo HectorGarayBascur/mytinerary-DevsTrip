@@ -6,12 +6,12 @@ export default function Footer() {
     <div className='container footStyles'>
 
       <div className='colOne'>
-        <p>MyTineray - DevsTrip</p>
-        <p>Political and Legal</p>
+        <p className="p-footer">MyTineray - DevsTrip</p>
+        <p className="p-footer">Political and Legal</p>
       </div>
 
       <div className='colTwo'>
-        <p>All Rights Reserved</p>
+        <p className="p-footer">All Rights Reserved</p>
         <a className="a-footer" href="https://www.google.com.ar/maps/place/3327+SW+25th+Terrace,+Miami,+FL+33133,+EE.+UU./@25.7442091,-80.2505474,17z/data=!3m1!4b1!4m5!3m4!1s0x88d9b7bbf1a403dd:0xb4e449d9751f0177!8m2!3d25.7442043!4d-80.2483587">Location</a>
       </div>
 
