@@ -8,10 +8,10 @@ import UnderConstruction from './pages/UnderContrstruction';
 function App() {
   return (
     <div className="App">
-      {/*   <Hero/> */}
+        <Hero/>
       {/* <Cities/> */}
       {/*  <NewCities/> */}
-      <UnderConstruction/>
+      {/* <UnderConstruction/> */}
     </div>
   );
 }
