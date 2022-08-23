@@ -1,3 +1,5 @@
+import '../styles/Arrow.css'
+
 function Arrow(props) {
     if(!props.icon) {
         throw new Error('String is required for icon property')
@@ -8,7 +10,7 @@ function Arrow(props) {
 
     return (
         <button className="Arrow-button" onClick={props.click}>
-           <img src={props.icon} alt="arrow" />
+           <img className="Arrow-carousel" src={props.icon} alt="arrow" />
         </button>
     )
 }
