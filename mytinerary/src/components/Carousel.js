@@ -18,6 +18,7 @@ export default function Carousel(props) {
     )
 
     useEffect(() => {
+
         let id = setInterval(function () {
             next()
         }, interval)
@@ -38,15 +39,24 @@ export default function Carousel(props) {
         if (end < items.length) {
             setStart (start+range)
             setEnd (end+range)
+        } else {
+            setStart(0)
+            setEnd(range)
         }
     }
 
     return (
         <div>
             <div className='slide'>
-                <Arrow icon={"<"} click={previous} />
+                <div>
+                <Arrow icon={"/arrowleft.png"} click={previous} />
+                </div>
+                <div className='slide2'>
                 {items.slice(start, end).map(itemView)}
-                <Arrow icon={">"} click={next} />
+                </div>
+                <div>
+                <Arrow icon={"/arrowright.png"} click={next} />
+                </div>
             </div>
         </div>
     )
