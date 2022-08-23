@@ -1,7 +1,7 @@
 import Cities from './pages/Cities';
 import NewCities from "./pages/NewCities"
 import Hero from "./pages/Hero"
-import UnderConstruction from './pages/UnderContruction';
+import UnderConstruction from './pages/UnderConstruction';
 import FooterLayout from './layouts/FooterLayout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
