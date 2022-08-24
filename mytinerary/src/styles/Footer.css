@@ -80,6 +80,31 @@
     cursor: pointer;
 }
 
+.container-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-login img{
+    cursor: pointer;
+}
+
+.container-login a{
+    font-size: 12px;
+    color: #73B1BF;
+    text-decoration: none;
+}
+
+.container-login a:hover{
+    color: #735755;
+}
+
+.container-login ul{
+    list-style-type: none;
+}
+
 @media only screen and (max-width: 560px){
     .footStyles{
         font-size: 12px;
