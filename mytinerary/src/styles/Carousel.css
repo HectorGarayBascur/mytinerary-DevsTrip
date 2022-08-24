@@ -47,6 +47,15 @@
     border-radius: 20px 20px 0px 0px;
 }
 
+.container-carousel{
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.6rem;
+    align-items: center;
+    font-family: 'Cabin Condensed', sans-serif;
+    color: #4da1b4;
+}
+
 @media only screen and (max-width: 320px) {
     .item > img{
         width: 4.5rem;
