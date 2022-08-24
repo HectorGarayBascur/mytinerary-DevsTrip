@@ -61,8 +61,47 @@
     gap: 0.2rem;
 }
 
+.container-welcome>p {
+    text-align: center;
+   
+}
 
+/*  
+ */
 
+@media only screen and (max-width: 768px) {
+    .Main-Welcome{
+    gap: 0.9rem;
+    padding: 0.2rem;
+    min-height: 20vh;
+    justify-content: space-evenly;
+    }
+    .container-logo>img {
+        width: 4.5rem;
+        height: 4.5rem;
+        padding-left: 0.5rem;
+        
+    }
+    .container-welcome>h1 {
+        text-align: center;
+        padding: 2rem, 1rem;
+        font-size: 20px;
+    }
+    .container-welcome>p {
+        font-size: 12px;
+      
+      
+    }
+    
+    .navbar {
+        flex-direction: column;
+    } 
+}
 
+@media only screen and (max-width: 320px){
+    .container-welcome>p {
+        display: none;
 
-  
+}
+   } 
+
