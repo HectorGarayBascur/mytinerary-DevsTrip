@@ -48,6 +48,10 @@ export default function Carousel(props) {
 
     return (
         <div>
+            <div className='container-carousel'>
+            <div>
+            <h2>Popular MYtineraries</h2> 
+            </div>
             <div className='slide'>
                 <div>
                 <Arrow icon={"/arrowleft.png"} click={previous} />
@@ -58,6 +62,7 @@ export default function Carousel(props) {
                 <div>
                 <Arrow icon={"/arrowright.png"} click={next} />
                 </div>
+            </div>
             </div>
         </div>
     )
