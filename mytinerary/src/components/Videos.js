@@ -1,13 +1,14 @@
 import '../styles/Videos.css'
+import {Link as LinkRouter} from 'react-router-dom'
 
 export default function Videos() {
   const buttonText = "Click here !"
   return (
     <div className="videos">
       <video className="video-main" autoPlay muted loop src="/MytineraryHero.mp4"></video>
-      <div class="overlay">
+      <div className="overlay">
         <p className="p-video">Find your next trip</p>
-        <a href="#" className='A-Welcome'>{buttonText.toUpperCase()}</a>
+        <LinkRouter to='/cities' className='A-Welcome'>{buttonText.toUpperCase()}</LinkRouter>
       </div>
     </div>
   )
