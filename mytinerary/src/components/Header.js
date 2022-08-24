@@ -1,14 +1,14 @@
 import '../styles/Welcome.css'
-import {Link as LinkRouter} from 'react-router-dom'
+import { Link as LinkRouter } from 'react-router-dom'
 
 const pages = [
-  {name:'Home' ,to:'/'},
-  {name:'UnderConstruction' ,to:'/underconstruction'},
-  {name:'Cities' ,to:'/cities'},
-  {name:'New Cities' ,to:'/newcities'},
+  {_id:1, name: 'Home', to: '/' },
+  {_id:2, name: 'Cities', to: '/cities' },
+  {_id:3, name: 'New Cities', to: '/newcities' },
+  // {_id:4, name: 'UnderConstruction', to: '/underconstruction' },
 ]
 
-const link = (page)=> <LinkRouter className='Header-link' to= {page.to}>{page.name}</LinkRouter>
+const link = (page) => <LinkRouter className='Header-link' key={page._id} to={page.to}>{page.name}</LinkRouter>
 
 export default function Header() {
   const title = "Welcome to MyTinerary"
@@ -16,17 +16,14 @@ export default function Header() {
   return (
     <div className='Main-Welcome'>
       <div className='container-logo'>
-        <img src='/Logo.png'/>
+        <img src='/Logo.png' alt="logo"/>
       </div>
       <div className="container-welcome">
         <h1 className='H1-Welcome'>{title}</h1>
         <p className='P-Welcome'>{slogan}</p>
       </div>
-      <div>
-        <div className='container'>
-          {pages.map(link)}
-        
-        </div>
+      <div className='navbar'>
+        {pages.map(link)}
       </div>
     </div>
   )
