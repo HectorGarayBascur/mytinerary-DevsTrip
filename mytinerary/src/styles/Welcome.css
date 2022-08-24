@@ -36,6 +36,30 @@
     font-family: 'Cabin Condensed', sans-serif;
 }
 
+.navbar{
+    display: flex;
+    gap: 1rem;
+}
+
+.Header-link{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.352);
+    height: 1.5rem;
+    font-size: 1.1rem;
+    font-family: 'Cabin Condensed', sans-serif;
+}
+
+.Header-link:hover {
+    border-bottom: 2px solid #73B1BF;
+    height: 1.5rem;
+    font-weight: bold;
+}
+
+.container-welcome{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
 
 
 
