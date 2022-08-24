@@ -1,5 +1,5 @@
 import "../styles/Footer.css"
-import {Link as LinkRouter} from 'react-router-dom'
+import { Link as LinkRouter } from 'react-router-dom'
 import ScrollToTopPage from "./ScrollToTopPage"
 
 export default function Footer() {
@@ -14,10 +14,10 @@ export default function Footer() {
       </div>
 
       <div className='colTwo'>
-      <ScrollToTopPage />
-      <LinkRouter to='/' className="p-footer">Home</LinkRouter>
-      <LinkRouter to='/cities' className="p-footer">Cities</LinkRouter>
-      <LinkRouter to='/newcities' className="p-footer">New Cities</LinkRouter>
+        <ScrollToTopPage />
+        <LinkRouter to='/' className="p-footer-nav">Home</LinkRouter>
+        <LinkRouter to='/cities' className="p-footer-nav">Cities</LinkRouter>
+        <LinkRouter to='/newcities' className="p-footer-nav">New Cities</LinkRouter>
       </div>
 
       <div className='colThree'>
