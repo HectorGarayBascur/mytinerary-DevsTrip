@@ -1,5 +1,6 @@
-import '../styles/Welcome.css'
+import '../styles/Header.css'
 import { Link as LinkRouter } from 'react-router-dom'
+import Login from './Login'
 
 const pages = [
   {_id:1, name: 'Home', to: '/' },
@@ -25,6 +26,7 @@ export default function Header() {
       <div className='navbar'>
         {pages.map(link)}
       </div>
+      <Login />
     </div>
   )
 }
