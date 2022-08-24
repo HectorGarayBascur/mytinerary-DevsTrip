@@ -11,7 +11,7 @@ export default function Carousel(props) {
     const interval = props.interval * 1000
 
     const itemView = (item) => (
-        <div className='item'>
+        <div key={item._id} className='item'>
             <img src={item.url} alt={item.title} />
             <p>{item.title}</p>
         </div>
@@ -26,7 +26,8 @@ export default function Carousel(props) {
         setIntervalId(id)
 
         return () => clearInterval(intervalId);
-    }, [start])
+        // eslint-disable-next-line
+        }, [start])
 
     function previous () {
         if (start >= range) {
