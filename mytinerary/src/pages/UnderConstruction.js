@@ -1,7 +1,15 @@
-import React from 'react'
+import '../styles/UnderConstruction.css'
+import {Link as LinkRouter} from 'react-router-dom'
 
 export default function UnderConstruction() {
-  return (   
-       <h3>Under Construction</h3>
+  const buttonText = "Go back to cities"
+  return (
+    <div className="videos-underconstruction">
+        <video className="video-underconstruction" autoPlay muted loop src="/Underconstruction.mp4"></video>
+      <div className="overlay-underconstruction">
+        <p className="p-video-underconstruction">Don't be mad, other cities are waiting for you!</p>
+        <LinkRouter to='/cities' className='A-Welcome-underconstruction'>{buttonText.toUpperCase()}</LinkRouter>
+      </div>
+    </div>
   )
 }
