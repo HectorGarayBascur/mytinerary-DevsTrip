@@ -1,11 +1,11 @@
 /* import './App.css'; */
-import Videos from "../components/Videos"
+import CallToAction from "../components/CallToAction"
 import EventsCarousel from "../components/EventsCarousel"
 
 function Hero() {
   return (
     <div className="App">
-      <Videos/>
+      <CallToAction/>
       <EventsCarousel/>
     </div>
   );
