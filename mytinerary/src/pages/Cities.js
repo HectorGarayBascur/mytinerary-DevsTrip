@@ -1,5 +1,6 @@
 import React from 'react'
 import CityCard from '../components/CityCard'
+import InputText from '../components/InputText'
 
 export default function Cities() {
   const items = [
@@ -19,6 +20,7 @@ export default function Cities() {
 
   return (
     <div>
+      
       {items.map((item) => {
         return <CityCard key={item._id} id={item._id} title={item.title} url={item.url} description={item.description} />
       })}
