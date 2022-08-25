@@ -6,7 +6,7 @@ export default function Cities() {
 
     <div>
        <h3>New Cities</h3>
-       <InputText/>
+      
     </div>
   )
 }
