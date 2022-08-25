@@ -18,7 +18,7 @@ export default function Header() {
 
   const [open, setOpen] = useState(false)
   const openH = () => {
-    if (open == true) {
+    if (open === true) {
       setOpen(false)
     } else {
       setOpen(true)
