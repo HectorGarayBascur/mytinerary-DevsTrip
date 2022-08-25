@@ -18,8 +18,12 @@ export default function Cities() {
     { _id: 12, url: "/Francia4.jpg", title: "Francia", description: "City description" },
   ]
 
+
+  
+
   return (
     <div>
+      <InputText/>
       
       {items.map((item) => {
         return <CityCard key={item._id} id={item._id} title={item.title} url={item.url} description={item.description} />
