@@ -3,6 +3,7 @@ import { Link as LinkRouter } from 'react-router-dom'
 import ScrollToTopPage from "./ScrollToTopPage"
 
 export default function Footer() {
+  const year = new Date().getFullYear();
   return (
 
     <div className='container footStyles'>
@@ -10,7 +11,7 @@ export default function Footer() {
       <div className='colOne'>
         <p className="p-footer">MyTineray - DevsTrip</p>
         <p className="p-footer">Political and Legal</p>
-        <p className="p-footer">All Rights Reserved</p>
+        <p className="p-footer">All Rights Reserved © {year}</p>
       </div>
 
       <div className='colTwo'>

@@ -1,6 +1,6 @@
 .footStyles {
     background-color: #F2F2F2;
-    min-height: 15vh;
+    height: 15vh;
     width: 100%;
     display: flex;
     flex-wrap: nowrap;

@@ -1,6 +1,6 @@
 import '../styles/Carousel.css'
 import Arrow from './Arrow'
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Carousel(props) {
     const range = props.range
@@ -27,19 +27,19 @@ export default function Carousel(props) {
 
         return () => clearInterval(intervalId);
         // eslint-disable-next-line
-        }, [start])
+    }, [start])
 
-    function previous () {
+    function previous() {
         if (start >= range) {
-            setStart(start-range)
-            setEnd(end-range)
+            setStart(start - range)
+            setEnd(end - range)
         }
     }
 
     function next() {
         if (end < items.length) {
-            setStart (start+range)
-            setEnd (end+range)
+            setStart(start + range)
+            setEnd(end + range)
         } else {
             setStart(0)
             setEnd(range)
@@ -49,20 +49,20 @@ export default function Carousel(props) {
     return (
         <div>
             <div className='container-carousel'>
-            <div>
-            <h2>Popular MYtineraries</h2> 
-            </div>
-            <div className='slide'>
                 <div>
-                <Arrow icon={"/arrowleft.png"} click={previous} />
+                    <h2>Popular Cities</h2>
                 </div>
-                <div className='slide2'>
-                {items.slice(start, end).map(itemView)}
+                <div className='slide'>
+                    <div>
+                        <Arrow icon={"/arrowleft.png"} click={previous} />
+                    </div>
+                    <div className='slide2'>
+                        {items.slice(start, end).map(itemView)}
+                    </div>
+                    <div>
+                        <Arrow icon={"/arrowright.png"} click={next} />
+                    </div>
                 </div>
-                <div>
-                <Arrow icon={"/arrowright.png"} click={next} />
-                </div>
-            </div>
             </div>
         </div>
     )
