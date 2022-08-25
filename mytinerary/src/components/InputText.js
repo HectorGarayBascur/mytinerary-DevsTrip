@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Cities from '../styles/Cities.css'
 
 export default function InputText() {
 
@@ -12,10 +13,10 @@ console.log(city)
 
   return (
     
-        <form>
-  <label id='city'>
+        <form className='formText'>
+  <label id='city' className='labelForm'>
     Citie Name:
-    <input type="text" for="" name="name" value={city} onChange={handleCity} />
+    <input type="text" for="" name="name" value={city} onChange={handleCity} className="inputText" />
   </label>
 
 </form>
