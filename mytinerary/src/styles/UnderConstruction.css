@@ -1,8 +1,8 @@
 .video-underconstruction{
-    width: 35%;
-    height: 65vh;
     object-fit: cover;
-    object-position: top;
+    object-position: center;
+    height: 50vh;
+    width: 100%;
     z-index: 1;
     border-radius: 10%;
     transition: 0.7s;
@@ -20,17 +20,26 @@
     align-items: center;
     text-align: center;
     padding: 2rem;
+    min-height: 65vh;
+}
+
+.video-column{
+    position: relative;
+    width: 90%;
+    max-width: 768px;
+    margin: 0 auto;
 }
 
 .overlay-underconstruction {
     position:absolute;
+    width: 100%;
     top: 35%;
-    left: 39%;
+    left: 50%;
     z-index:1;
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 20rem;
+    transform: translateX(-50%);
 }
 
 .A-Welcome-underconstruction {
@@ -38,56 +47,76 @@
     font-weight: bold;
     font-family: 'Cabin Condensed', sans-serif;
     font-size: 20px;
+    width: 100%;
 }
 
 .A-Welcome-underconstruction:hover {
     display:inline-block;
     transform: scale(1.1);
     color: white;
+    width: 100%;
 }
 
 .p-video-underconstruction{
     font-size: 2rem;
-    padding-bottom: 0.5rem;
+    padding: 0.8rem;
     color: white;
     font-weight: bold;
 }
-/* 
-@media only screen and (max-width: 320px) {
-    .overlay-underconstruction {
-        top: 30%;
-        left: 21%;
+
+ @media only screen and (max-width: 320px) {
+    .A-Welcome-underconstruction {
+        font-size: 10px;
+    }
+    
+    .p-video-underconstruction{
+        font-size: 15px;
     }
 }
+
 
 @media only screen and (min-width: 375px) {
-    .overlay-underconstruction {
-        top: 30%;
-        left: 25%;
+    .A-Welcome-underconstruction {
+        font-size: 1rem;
+    }
+    
+    .p-video-underconstruction{
+        font-size: 1.2rem;
     }
 }
+
 
 @media only screen and (min-width: 425px) {
-    .overlay-underconstruction {
-        top: 30%;
-        left: 28%;
+    .A-Welcome-underconstruction {
+        font-size: 1rem;
+    }
+    
+    .p-video-underconstruction{
+        font-size: 1.2rem;
     }
 }
+
+
 
 @media only screen and (min-width: 768px) {
-    .overlay-underconstruction {
-        top: 30%;
-        left: 38%;
+    .A-Welcome-underconstruction {
+        font-size: 2rem;
+    }
+    
+    .p-video-underconstruction{
+        font-size: 2rem;
     }
 }
 
+/*
 @media only screen and (min-width: 1024px) {
     .overlay-underconstruction {
         top: 30%;
         left: 41%;
     }
-}
+} */
 
+/* 
 @media only screen and (min-width: 1440px) {
     .overlay-underconstruction {
         top: 30%;
