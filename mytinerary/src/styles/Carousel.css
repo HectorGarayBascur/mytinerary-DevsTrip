@@ -1,0 +1,139 @@
+.slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    min-height: 30vh;
+    padding: 1rem;
+    font-family: 'Cabin Condensed', sans-serif;
+    color: #4da1b4;
+}
+
+.slide2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.item > img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 0px black;  
+    transition: 0s;  
+    filter: grayscale(100%);
+    transition-duration: 0.7s;
+}
+
+.item > img:hover{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 0%;
+    transform: 0.7s;
+    border-radius: 5px;
+    filter: none;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    border-top: 3px solid rgba(28,110,164,0.42);
+    border-radius: 20px 20px 0px 0px;
+}
+
+.container-carousel{
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.6rem;
+    align-items: center;
+    font-family: 'Cabin Condensed', sans-serif;
+    color: #4da1b4;
+}
+
+@media only screen and (max-width: 320px) {
+    .item > img{
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+    
+    .item > img:hover{
+        width: 4.5rem;
+        height: 4.5rem;
+
+    }
+
+}
+
+@media only screen and (min-width: 375px) {
+    .item > img{
+        width: 5.5rem;
+        height: 5.5rem;
+    }
+    
+    .item > img:hover{
+        width: 5.5rem;
+        height: 5.5rem;
+
+    }
+}
+
+@media only screen and (min-width: 425px) {
+    .item > img{
+        width: 6.5rem;
+        height: 6.5rem;
+    }
+    
+    .item > img:hover{
+        width: 6.5rem;
+        height: 6.5rem;
+
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .item > img{
+        width: 7.5rem;
+        height: 7.5rem;
+    }
+    
+    .item > img:hover{
+        width: 7.5rem;
+        height: 7.5rem;
+
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .item > img{
+        width: 8.5rem;
+        height: 8.5rem;
+    }
+    
+    .item > img:hover{
+        width: 8.5rem;
+        height: 8.5rem;
+
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .item > img{
+        width: 10rem;
+        height: 10rem;
+    }
+    
+    .item > img:hover{
+        width: 10rem;
+        height: 10rem;
+
+    }
+}
+
+
+

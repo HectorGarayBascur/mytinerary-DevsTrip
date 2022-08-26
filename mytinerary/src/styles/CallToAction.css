@@ -1,0 +1,110 @@
+.video-main {
+    object-fit: cover;
+    object-position: center;
+    height: 35vh;
+    width: 100%;
+    z-index: 1;
+}
+
+.videos-Call {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 35vh;
+}
+
+.call-column {
+    position: relative;
+    width: 100%;
+    max-width: 2440px;
+    height: 100%;
+}
+
+.videos {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.video-main {
+    position: relative;
+    z-index: 0;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    top: 30%;
+    left: 50%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+.A-Welcome {
+    color: rgba(255, 255, 255, 0.321);
+    font-weight: bold;
+    font-family: 'Cabin Condensed', sans-serif;
+    font-size: 20px;
+}
+
+.A-Welcome:hover {
+    display: inline-block;
+    transform: scale(1.1);
+    color: white;
+}
+
+.p-video {
+    font-size: 2rem;
+    padding: 0.8rem;
+    color: white;
+    font-weight: bold;
+}
+
+/* @media only screen and (max-width: 320px) {
+    .overlay {
+        top: 30%;
+        left: 21%;
+    }
+}
+
+@media only screen and (min-width: 375px) {
+    .overlay {
+        top: 30%;
+        left: 25%;
+    }
+}
+
+@media only screen and (min-width: 425px) {
+    .overlay {
+        top: 30%;
+        left: 28%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .overlay {
+        top: 30%;
+        left: 38%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .overlay {
+        top: 30%;
+        left: 41%;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .overlay {
+        top: 30%;
+        left: 44%;
+    }
+} */

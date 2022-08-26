@@ -1,0 +1,87 @@
+.footStyles {
+    background-color: #F2F2F2;
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Cabin Condensed', sans-serif;
+    padding: 1rem .5rem 1.5rem .5rem;
+}
+
+.colOne {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #73B1BF;
+}
+
+.colTwo {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-footer-nav, .btn-scroll{
+    text-decoration: none;
+}
+
+.btn-scroll{
+    color: #73B1BF;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.btn-scroll:hover, .p-footer-nav:hover{
+    color:#735755
+}
+
+.p-footer-nav{
+    color: #73B1BF;
+}
+
+.colThree {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    color: #73B1BF;
+}
+
+.bi-whatsapp:hover{
+    color: #735755;
+    cursor: pointer;
+}
+
+.bi-twitter:hover{
+    color: #735755;
+    cursor: pointer;
+}
+
+.bi-instagram:hover{
+    color: #735755;
+    cursor: pointer;
+}
+
+.scroll-top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.icon-top{
+    width: 2rem;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 560px){
+    .footStyles{
+        font-size: 12px;
+    }
+}
