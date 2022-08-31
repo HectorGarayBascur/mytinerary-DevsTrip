@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import '../styles/InputText.css'
+
 
 export default function InputText() {
 

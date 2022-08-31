@@ -14,7 +14,7 @@
     height: 20vh;
     background-color: white;
     gap: 2rem;
-    border-bottom: 7px solid rgba(28,110,164,0.42);
+    border-bottom: 7px solid rgba(28, 110, 164, 0.42);
     border-radius: 0px 0px 0px 0px;
 }
 
@@ -36,12 +36,12 @@
     font-family: 'Cabin Condensed', sans-serif;
 }
 
-.navbar{
+.navbar {
     display: flex;
     gap: 1rem;
 }
 
-.Header-link{
+.Header-link {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.352);
     height: 1.5rem;
@@ -55,53 +55,66 @@
     font-weight: bold;
 }
 
-.container-welcome{
+.container-welcome {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
+    align-items: center;
 }
 
 .container-welcome>p {
     text-align: center;
-   
+}
+
+.H1-Welcome {
+    text-align: center;
 }
 
 /*  
  */
 
 @media only screen and (max-width: 768px) {
-    .Main-Welcome{
-    gap: 0.9rem;
-    padding: 0.2rem;
-    min-height: 20vh;
-    justify-content: space-evenly;
+    .Main-Welcome {
+        gap: 0.9rem;
+        padding: 0.2rem;
+        min-height: 20vh;
+        justify-content: space-evenly;
     }
+
     .container-logo>img {
         width: 4.5rem;
         height: 4.5rem;
         padding-left: 0.5rem;
-        
+
     }
+
     .container-welcome>h1 {
         text-align: center;
         padding: 2rem, 1rem;
         font-size: 20px;
+        align-items: center;
     }
+
     .container-welcome>p {
         font-size: 12px;
-      
-      
     }
-    
+
+    .container-welcome>p {
+        align-items: center;
+    }
+
     .navbar {
         flex-direction: column;
-    } 
+    }
 }
 
-@media only screen and (max-width: 320px){
+@media only screen and (max-width: 320px) {
     .container-welcome>p {
         display: none;
 
-}
-   } 
+    }
 
+    .container-welcome>p {
+        align-items: center;
+    }
+}

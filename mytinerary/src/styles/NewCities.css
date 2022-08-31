@@ -16,7 +16,7 @@
     border: solid 7px rgba(28, 110, 164, 0.42);
 }
 
-label {
+.form-label {
     display: flex;
     justify-content: space-between;
 }

@@ -14,7 +14,7 @@
     height: 20vh;
     background-color: white;
     gap: 2rem;
-    border-bottom: 7px solid rgba(28,110,164,0.42);
+    border-bottom: 7px solid rgba(28, 110, 164, 0.42);
     border-radius: 0px 0px 0px 0px;
     padding: .5rem;
 }
@@ -29,6 +29,7 @@
     /* text-shadow: 3px 3px 5px rgba(33,146,255,0.69); */
     margin: 0;
     font-family: 'Cabin Condensed', sans-serif;
+    text-align: center;
 }
 
 .P-Welcome {
@@ -37,12 +38,12 @@
     font-family: 'Cabin Condensed', sans-serif;
 }
 
-.navbar{
+.navbar {
     display: flex;
     gap: 1rem;
 }
 
-.Header-link{
+.Header-link {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.352);
     height: 1.5rem;
@@ -56,7 +57,7 @@
     font-weight: bold;
 }
 
-.container-welcome{
+.container-welcome {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
@@ -64,44 +65,44 @@
 
 .container-welcome>p {
     text-align: center;
-   
+
 }
 
-.container-login{
+.container-login {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.container-login img{
+.container-login img {
     cursor: pointer;
 }
 
-.container-login a{
+.container-login a {
     font-size: 12px;
     color: #73B1BF;
     text-decoration: none;
 }
 
-.container-login a:hover{
+.container-login a:hover {
     color: #735755;
 }
 
-.container-login ul{
+.container-login ul {
     list-style-type: none;
 }
 
-.container-hamburger{
+.container-hamburger {
     display: none;
 }
 
-.container-hamburger a{
+.container-hamburger a {
     font-size: 12px;
     color: #73B1BF;
 }
 
-.container-hamburger a:hover{
+.container-hamburger a:hover {
     color: #735755;
 }
 
@@ -109,55 +110,57 @@
  */
 
 @media only screen and (max-width: 768px) {
-    .Main-Welcome{
-    gap: 0.9rem;
-    padding: 0.2rem;
-    min-height: 20vh;
-    justify-content: space-evenly;
+    .Main-Welcome {
+        gap: 0.9rem;
+        padding: 0.2rem;
+        min-height: 20vh;
+        justify-content: space-evenly;
     }
+
     .container-logo>img {
         width: 4.5rem;
         height: 4.5rem;
         padding-left: 0.5rem;
-        
+
     }
+
     .container-welcome>h1 {
         text-align: center;
         padding: 2rem, 1rem;
         font-size: 20px;
     }
+
     .container-welcome>p {
         font-size: 12px;
-      
-      
+
+
     }
-    
+
     .navbar {
         flex-direction: column;
         display: none;
-    } 
+    }
 
-    .container-hamburger{
+    .container-hamburger {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
 
-    .pages-hamburguer{
+    .pages-hamburguer {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        
+
     }
 
 }
 
-@media only screen and (max-width: 320px){
+@media only screen and (max-width: 320px) {
     .container-welcome>p {
         display: none;
     }
-    
-   } 
 
+}

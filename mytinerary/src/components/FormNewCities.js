@@ -3,7 +3,7 @@ import '../styles/NewCities.css'
 
 function Input({ label, name }) {
     return (
-        <label>
+        <label className="form-label">
             {label}
             <input name={name} />
         </label>
