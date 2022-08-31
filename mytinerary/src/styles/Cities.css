@@ -7,3 +7,18 @@
     font-size: 1.5rem;
     font-family: 'Cabin Condensed', sans-serif;
 }
+
+.searchCities {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.input-cities{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 25px;
+}
