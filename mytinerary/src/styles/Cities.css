@@ -15,10 +15,14 @@
     padding: 2rem;
 }
 
-.input-cities{
+.input-cities {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 25%;
     height: 25px;
+}
+
+.container-cities {
+    min-height: 65vh;
 }
