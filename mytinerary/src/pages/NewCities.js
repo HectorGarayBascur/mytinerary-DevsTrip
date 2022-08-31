@@ -1,11 +1,12 @@
 import React from 'react'
+import FormNewCities from '../components/FormNewCities'
+import '../styles/NewCities.css'
 
 export default function Cities() {
-  return ( 
+  return (
 
-    <div>
-       <h3>New Cities</h3>
-
+    <div className='form-newcity'>
+      <FormNewCities />
     </div>
   )
 }
