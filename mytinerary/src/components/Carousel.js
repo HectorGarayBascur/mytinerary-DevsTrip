@@ -33,8 +33,7 @@ export default function Carousel(props) {
         return () => clearInterval(id);
         // eslint-disable-next-line
     }, [start])
-
-    function previous() {
+function previous() {
         if (start >= range) {
             setStart(start - range)
             setEnd(end - range)
