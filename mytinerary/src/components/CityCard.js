@@ -11,7 +11,7 @@ export default function CityCard(props) {
                         <p>Country: {props.country}</p>
                     </figcaption>
                     <img src={props.photo} className="img-card" alt="sample8" />
-                    <div className="position"><LinkRouter to='*' className="city-card-btn">More info</LinkRouter></div>
+                    <div className="position"><LinkRouter to={props.linkTo} className="city-card-btn">More info</LinkRouter></div>
                 </figure>
             </div>
         </div>

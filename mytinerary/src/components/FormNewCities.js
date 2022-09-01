@@ -26,8 +26,11 @@ export default function FormNewCities() {
         };
 
         const newCities = [...cities];
-        newCities.push(city);
-        updateCities(newCities);
+
+        if (city.population >= 1000 && city.population <= 100000000) {
+            newCities.push(city);
+            updateCities(newCities);
+        }
     };
 
     console.log(cities);
