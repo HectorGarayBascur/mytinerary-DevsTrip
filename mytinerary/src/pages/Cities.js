@@ -35,7 +35,8 @@ export default function Cities() {
           <CityCard key={item._id}
             city={item.city}
             photo={item.photo}
-            country={item.country} />
+            country={item.country}
+            linkTo={item._id} />
         ))}
       </div>
     </div>
