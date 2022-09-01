@@ -1,11 +1,6 @@
-import {useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef } from "react"
 import axios from 'axios'
 import '../styles/EditCities.css'
-
-
-
-
-
 
 function Input({ label, name }) {
     return (
@@ -28,25 +23,18 @@ function Input({ label, name }) {
     )
 } */
 
-
-
-
 export default function FormNewCities() {
     const [cit, setItems] = useState([])
     useEffect(() => {
         axios.get('http://localhost:4000/cities')
-          .then(response => 
-            {
-              console.log(response)
-              setItems(response.data)})
-      }, []);
+            .then(response => {
+                console.log(response)
+                setItems(response.data)
+            })
+    }, []);
 
-      let cityArray = cit.map(element=>element)
-      console.log(cityArray)
-
-
-
-
+    let cityArray = cit.map(element => element)
+    console.log(cityArray)
     const formRef = useRef();
     const [cities, updateCities] = useState([]);
 
@@ -66,11 +54,9 @@ export default function FormNewCities() {
         updateCities(newCities);
     };
 
-console.log(cities)
+    console.log(cities)
     return (
         <form ref={formRef} action="#" className="inputs-class">
-           
-          
             <Input label="New City:" name="city" />
             <Input label="New Country:" name="country" />
             <Input label="New Photo:" name="photo" />
