@@ -4,6 +4,7 @@ import Cities from './pages/Cities';
 import NewCities from "./pages/NewCities"
 import Hero from "./pages/Hero"
 import EditCities from "./pages/EditCities"
+import City from './pages/City';
 import UnderConstruction from './pages/UnderConstruction';
 import FooterLayout from './layouts/FooterLayout'
 import ScrollToTop from './components/ScrollToTop';
@@ -18,8 +19,9 @@ function App() {
           <Routes>
             <Route path='/' element={<Hero />} />
             <Route path='/cities' element={<Cities />} />
+            <Route path='/cities/:id' element={<City />} />
             <Route path='/newcities' element={<NewCities />} />
-            <Route path='/editcities'element={<EditCities/>}/>
+            <Route path='/editcities' element={<EditCities />} />
             <Route path='*' element={<UnderConstruction />} />
           </Routes>
         </FooterLayout>
