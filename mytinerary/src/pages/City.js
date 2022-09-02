@@ -19,7 +19,7 @@ export default function City() {
     return (
         <div className='container-card-details'>
             <div>
-                <h1>{cityData.country}</h1>
+                <h2>{cityData.country}</h2>
             </div>
             <div className="container-city">
                 <div className="card">
@@ -28,9 +28,9 @@ export default function City() {
                     </div>
                     <div className="card-body">
                         {/* <span class="tag tag-teal">{cityData.country}</span> */}
-                        <h4>
+                        <h3>
                             {cityData.city}
-                        </h4>
+                        </h3>
                         <p>
                             {cityData.description}
                         </p>
@@ -41,7 +41,7 @@ export default function City() {
                                 <small>{cityData.population}</small>
                             </div>
                             <div className="user-info">
-                                <button><LinkRouter to='/cities'>Go to cities</LinkRouter></button>
+                                <h4 className="go-cities"><LinkRouter to='/cities'>Go to cities</LinkRouter></h4>
                             </div>
                             <div className="user-info">
                                 <h5>Fundation</h5>

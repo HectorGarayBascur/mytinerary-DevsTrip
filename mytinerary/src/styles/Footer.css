@@ -1,6 +1,6 @@
 .footStyles {
-    background-color: #F2F2F2;
-    height: 15vh;
+    background-color: #8C4F2B;
+    min-height: 0;
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
@@ -16,7 +16,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #73B1BF;
+    color: white;
 }
 
 .colTwo {
@@ -38,32 +38,32 @@
 }
 
 .btn-scroll:hover, .p-footer-nav:hover{
-    color:#735755
+    color:#73B1BF
 }
 
 .p-footer-nav{
-    color: #73B1BF;
+    color: white;
 }
 
 .colThree {
     width: 30%;
     display: flex;
     justify-content: space-evenly;
-    color: #73B1BF;
+    color: white;
 }
 
 .bi-whatsapp:hover{
-    color: #735755;
+    color: #73B1BF;
     cursor: pointer;
 }
 
 .bi-twitter:hover{
-    color: #735755;
+    color: #73B1BF;
     cursor: pointer;
 }
 
 .bi-instagram:hover{
-    color: #735755;
+    color: #73B1BF;
     cursor: pointer;
 }
 
@@ -77,7 +77,9 @@
 
 .icon-top{
     width: 2rem;
+    height: 20px;
     cursor: pointer;
+    margin-bottom: 8px;
 }
 
 @media only screen and (max-width: 560px){
