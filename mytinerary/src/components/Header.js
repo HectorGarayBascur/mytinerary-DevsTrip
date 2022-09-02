@@ -7,6 +7,7 @@ const pages = [
   { _id: 1, name: 'Home', to: '/' },
   { _id: 2, name: 'Cities', to: '/cities' },
   { _id: 3, name: 'New Cities', to: '/newcities' },
+  { _id: 5, name: 'Edit Cities', to: '/editcities' },
   // {_id:4, name: 'UnderConstruction', to: '/underconstruction' },
 ]
 

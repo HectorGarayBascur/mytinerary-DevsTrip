@@ -1,4 +1,4 @@
-.slide{
+.slide {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@
     color: #4da1b4;
 }
 
-.slide2{
+.slide2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -17,17 +17,20 @@
     gap: 1rem;
 }
 
-.item > img{
-    width: 10rem;
-    height: 10rem;
+.p-carousel {
+    text-align: center;
+}
+
+.item>img {
+    object-fit: cover;
     border-radius: 50%;
-    box-shadow: 0 0 15px 0px black;  
-    transition: 0s;  
+    box-shadow: 0 0 15px 0px black;
+    transition: 0s;
     filter: grayscale(100%);
     transition-duration: 0.7s;
 }
 
-.item > img:hover{
+.item>img:hover {
     width: 10rem;
     height: 10rem;
     border-radius: 0%;
@@ -36,18 +39,18 @@
     filter: none;
 }
 
-.item{
+.item {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.container{
-    border-top: 3px solid rgba(28,110,164,0.42);
+.container {
+    border-top: 3px solid rgba(28, 110, 164, 0.42);
     border-radius: 20px 20px 0px 0px;
 }
 
-.container-carousel{
+.container-carousel {
     display: flex;
     flex-direction: column;
     padding-top: 0.6rem;
@@ -57,12 +60,12 @@
 }
 
 @media only screen and (max-width: 320px) {
-    .item > img{
+    .item>img {
         width: 4.5rem;
         height: 4.5rem;
     }
-    
-    .item > img:hover{
+
+    .item>img:hover {
         width: 4.5rem;
         height: 4.5rem;
 
@@ -71,12 +74,12 @@
 }
 
 @media only screen and (min-width: 375px) {
-    .item > img{
+    .item>img {
         width: 5.5rem;
         height: 5.5rem;
     }
-    
-    .item > img:hover{
+
+    .item>img:hover {
         width: 5.5rem;
         height: 5.5rem;
 
@@ -84,12 +87,12 @@
 }
 
 @media only screen and (min-width: 425px) {
-    .item > img{
+    .item>img {
         width: 6.5rem;
         height: 6.5rem;
     }
-    
-    .item > img:hover{
+
+    .item>img:hover {
         width: 6.5rem;
         height: 6.5rem;
 
@@ -97,12 +100,12 @@
 }
 
 @media only screen and (min-width: 768px) {
-    .item > img{
+    .item>img {
         width: 7.5rem;
         height: 7.5rem;
     }
-    
-    .item > img:hover{
+
+    .item>img:hover {
         width: 7.5rem;
         height: 7.5rem;
 
@@ -110,12 +113,12 @@
 }
 
 @media only screen and (min-width: 1024px) {
-    .item > img{
+    .item>img {
         width: 8.5rem;
         height: 8.5rem;
     }
-    
-    .item > img:hover{
+
+    .item>img:hover {
         width: 8.5rem;
         height: 8.5rem;
 
@@ -123,17 +126,14 @@
 }
 
 @media only screen and (min-width: 1440px) {
-    .item > img{
+    .item>img {
         width: 10rem;
         height: 10rem;
     }
-    
-    .item > img:hover{
+
+    .item>img:hover {
         width: 10rem;
         height: 10rem;
 
     }
 }
-
-
-

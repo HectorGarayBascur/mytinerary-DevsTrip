@@ -1,0 +1,28 @@
+.form-newcity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 65vh;
+}
+
+.inputs-class {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #F2F2F2;
+    padding: 2.5rem;
+    border-radius: 10%;
+    border: solid 7px rgba(28, 110, 164, 0.42);
+}
+
+.form-label {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px) {
+    .inputs-class {
+        padding: 1.5rem;
+    }
+}
