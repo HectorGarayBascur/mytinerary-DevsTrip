@@ -19,8 +19,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 25%;
     height: 25px;
+    width: 15rem;
+}
+
+.input-cities input{
+    width: 100%;
+    padding: 5px;
 }
 
 .container-cities {
