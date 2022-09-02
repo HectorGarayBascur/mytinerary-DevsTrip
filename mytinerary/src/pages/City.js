@@ -14,7 +14,6 @@ export default function City() {
             .then(response => {
                 setCityData(response.data.response)
             })
-        // eslint-disable-next-line
     }, [])
 
     return (
