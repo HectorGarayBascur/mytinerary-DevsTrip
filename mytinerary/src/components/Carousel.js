@@ -13,8 +13,6 @@ export default function Carousel(props) {
     const items = props.data
     const interval = props.interval * 1000
 
-
-
     const itemView = (item) => (
         <div key={item._id}>
             <LinkRouter className='item' to='*'><img src={item.photo} alt={item.city} /></LinkRouter>
@@ -33,7 +31,7 @@ export default function Carousel(props) {
         return () => clearInterval(id);
         // eslint-disable-next-line
     }, [start])
-function previous() {
+    function previous() {
         if (start >= range) {
             setStart(start - range)
             setEnd(end - range)
