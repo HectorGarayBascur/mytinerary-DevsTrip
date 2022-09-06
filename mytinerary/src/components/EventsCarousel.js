@@ -1,6 +1,7 @@
 import Carousel from './Carousel'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import url from '../api'
 
 export default function EventsCarousel() {
     const [items, setItems] = useState([])
@@ -19,7 +20,7 @@ export default function EventsCarousel() {
     //     { _id: 12, url: "/Francia4.jpg", title: "Francia", description: "City description" },
     // ]
     useEffect(() => {
-        axios.get('http://localhost:4000/cities')
+        axios.get(url + '/cities')
             .then(response => setItems(response.data))
     }, []);
 

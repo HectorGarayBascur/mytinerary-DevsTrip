@@ -3,6 +3,7 @@ import axios from 'axios'
 import CityCard from '../components/CityCard'
 import '../styles/Cities.css'
 import { useEffect, useState, useRef } from 'react'
+import url from '../api'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchFromServer } from '../features/citySlice'
 import { useGetAllCitiesQuery } from '../features/citiesAPI'
@@ -29,11 +30,11 @@ export default function Cities() {
   // const inputSearch = useRef()
 
 
-  // useEffect(() => {
-  //   axios.get('http://localhost:4000/cities?city=' + value)
-  //     .then(response => { setItems(response.data) })
-  //     .catch(error => console.log(error))
-  // }, [value]);
+  useEffect(() => {
+    axios.get(url + '/cities?city=' + value)
+      .then(response => { setItems(response.data) })
+      .catch(error => console.log(error))
+  }, [value]);
 
   const valueCity = (event) => {
     setValue(event.target.value)
