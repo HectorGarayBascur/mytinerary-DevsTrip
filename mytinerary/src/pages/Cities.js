@@ -3,7 +3,7 @@ import axios from 'axios'
 import CityCard from '../components/CityCard'
 import '../styles/Cities.css'
 import { useEffect, useState, useRef } from 'react'
-
+import url from '../api'
 
 export default function Cities() {
   const [items, setItems] = useState([])
@@ -12,7 +12,7 @@ export default function Cities() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:4000/cities?city=' + value)
+    axios.get(url + '/cities?city=' + value)
       .then(response => { setItems(response.data) })
       .catch(error => console.log(error))
   }, [value]);
