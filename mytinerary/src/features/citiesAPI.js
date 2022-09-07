@@ -10,9 +10,13 @@ export const citiesAPI = createApi({
     endpoints: (builder) => ({
         getAllCities: builder.query({
             query: () => '/cities'
+        }),
+        getCity: builder.query({
+            query: (id) => '/cities/' + id
         })
     })
+
 })
 
 export default citiesAPI
-export const { useGetAllCitiesQuery } = citiesAPI
+export const { useGetAllCitiesQuery, useGetCityQuery } = citiesAPI
