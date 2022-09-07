@@ -1,10 +1,10 @@
 import React from 'react'
-import EditC from "../components/EditC"
+import EditCity from "../components/EditCity"
 
 export default function EditCities() {
   return (
     <div className='form-newcity'>
-        <EditC/>
+      <EditCity />
     </div>
   )
 }
