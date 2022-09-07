@@ -1,6 +1,7 @@
 import '../styles/Itinerary.css'
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
+import Comments from './Comments';
 import { useEffect, useState } from 'react'
 
 export default function Itinerary() {
@@ -18,7 +19,8 @@ export default function Itinerary() {
     }, []);
 
     return (
-        <div className="data-card">
+        <div>
+            <div className="data-card">
             <h2>{itineraryData.name}</h2>
             <h4>{itineraryData.city}</h4>
             <div className='data-p-d'>
@@ -27,6 +29,8 @@ export default function Itinerary() {
             </div>
             <p>{itineraryData.likes}</p>
             <p>{itineraryData.tags}</p>
+        </div>
+        <Comments />
         </div>
     )
 }
