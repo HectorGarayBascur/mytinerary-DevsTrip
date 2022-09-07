@@ -1,0 +1,24 @@
+.container-activities-padre{
+    width: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 10px 0;
+}
+
+.container-activities{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    /* background-color: blueviolet; */
+    justify-content: center;
+    padding: 10px 0 10px 0;
+    gap: 20px;
+}
+
+.container-activities h3{
+    text-align: center;
+    background-color: #73B1BF;
+    color: white;
+}
