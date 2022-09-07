@@ -7,6 +7,7 @@ import Itinerary from '../components/Itinerary';
 import url from '../api';
 import { useGetCityQuery } from '../features/citiesAPI';
 import { useGetItinerariesQuery } from '../features/itinerariesAPI';
+import { useGetActivitiesQuery } from '../features/activitiesAPI';
 
 
 export default function City() {
@@ -14,6 +15,7 @@ export default function City() {
     // const [cityData, setCityData] = useState({})
     const { data: city } = useGetCityQuery(id)
     const { data: itineraries } = useGetItinerariesQuery(id)
+    const { data: activities } = useGetActivitiesQuery(id)
     const date = new Date(city?.response.fundation)
 
     // useEffect(() => {
