@@ -2,13 +2,14 @@ import '../styles/Itinerary.css'
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import Comments from './Comments';
+import Activities from './Activities';
 import { useEffect, useState } from 'react'
 
 export default function Itinerary({ itinerary }) {
     console.log(itinerary)
     return (
   
-        <div>
+        <div className='container-padre-itinerary'>
             <div className="data-card">
                 <h2>{itinerary.name}</h2>
                 <div className='data-p-d'>
@@ -18,8 +19,8 @@ export default function Itinerary({ itinerary }) {
                 <p>likes{itinerary.likes}</p>
                 <p>tags{itinerary.tags}</p>
             </div>
+            <Activities />
             <Comments />
         </div>
-
     )
 }

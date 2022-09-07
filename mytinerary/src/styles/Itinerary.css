@@ -1,8 +1,18 @@
+.container-padre-itinerary {
+    background-color: rgba(228, 228, 228, 0.733);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
 .data-card {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    max-width: 300px;
+    width: 80%;
     min-height: 168;
     overflow: hidden;
     border-radius: .5em;
@@ -18,10 +28,11 @@
     color: black;
     font-weight: bold;
     line-height: 1;
-    padding-bottom: .5em;
-    margin: 0 0 0.142857143em;
+    padding-bottom: 1em;
+    margin: 0 0 1rem;
     border-bottom: 2px solid #73B1BF;
     transition: color .45s ease, border .45s ease;
+    text-align: center;
 }
 
 .data-card h4 {
@@ -46,7 +57,7 @@
 .data-p-d{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .link-text {
