@@ -8,6 +8,7 @@ import City from './pages/City';
 import UnderConstruction from './pages/UnderConstruction';
 import FooterLayout from './layouts/FooterLayout'
 import ScrollToTop from './components/ScrollToTop';
+import MyTineraries from './pages/MyTineraries';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path='/newcities' element={<NewCities />} />
             <Route path='/editcities' element={<EditCities />} />
             <Route path='*' element={<UnderConstruction />} />
+            <Route path='/mytineraries' element={<MyTineraries />} />
           </Routes>
         </FooterLayout>
       </BrowserRouter>
