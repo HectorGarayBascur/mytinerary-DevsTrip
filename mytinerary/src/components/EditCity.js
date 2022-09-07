@@ -12,20 +12,17 @@ function Input({ label, name }) {
     )
 }
 
-/* function Select ({name}) {
+function Select({ name, items, onChange }) {
     return (
-
-        <select>
-        <option disabled selected value>Select the City to Edit</option>
-
-        {{name}.map((element)=>(<option value={element.city}>{element.city}</option>))}
+        <select name={name} onChange={onChange} defaultValue="empty">
+            <option disabled value="empty">Select the City to Edit</option>
+            {items.map((item) => (<option key={item._id} value={item._id}>{item.city}</option>))}
         </select>
-     
     )
-} */
+}
 
-export default function FormNewCities() {
-    const [cit, setItems] = useState([])
+export default function EditCity() {
+    const [items, setItems] = useState([])
     useEffect(() => {
         axios.get(url + '/cities')
             .then(response => {
@@ -34,10 +31,7 @@ export default function FormNewCities() {
             })
     }, []);
 
-    let cityArray = cit.map(element => element)
-    console.log(cityArray)
     const formRef = useRef();
-    const [cities, updateCities] = useState([]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -46,21 +40,45 @@ export default function FormNewCities() {
             city: formData.get('city'),
             country: formData.get('country'),
             photo: formData.get('photo'),
+            description: formData.get('description'),
             population: formData.get('population'),
             fundation: formData.get('fundation'),
         };
 
-        const newCities = [...cities];
-        newCities.push(city);
-        updateCities(newCities);
+        const id = formData.get('cityid');
+        if (id) {
+            axios.patch('http://localhost:4000/cities/' + id, city).then((res) => {
+                alert(res.data.message);
+            }).catch(error => {
+                console.error(error);
+                alert(error.response.data.message);
+            })
+        }
     };
 
-    console.log(cities)
+    const handleSelect = (event) => {
+        const selectedId = event.target.value;
+        console.log(selectedId)
+        items.forEach(item => {
+            if (item._id == selectedId) {
+                const form = formRef.current;
+                Object.keys(item).forEach((key) => {
+                    const input = form.elements[key];
+                    if (input) {
+                        input.value = item[key];
+                    }
+                });
+            }
+        });
+    }
+
     return (
         <form ref={formRef} action="#" className="inputs-class">
+            <Select name="cityid" items={items} onChange={handleSelect} />
             <Input label="New City:" name="city" />
             <Input label="New Country:" name="country" />
             <Input label="New Photo:" name="photo" />
+            <Input label="New description:" name="description" />
             <Input label="Update Population:" name="population" />
             <Input label="Edit:" name="fundation" />
             <button type="submit" onClick={handleSubmit}>Submit</button>

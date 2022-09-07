@@ -2,9 +2,10 @@ import Carousel from './Carousel'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import url from '../api'
+import { useGetAllCitiesQuery } from '../features/citiesAPI'
 
 export default function EventsCarousel() {
-    const [items, setItems] = useState([])
+    // const [items, setItems] = useState([])
     // [
     //     { _id: 1, url: "/New_York1.jpg", title: "New York", description: "City description" },
     //     { _id: 2, url: "/San_fco1.jpg", title: "San Francisco", description: "City description" },
@@ -19,10 +20,19 @@ export default function EventsCarousel() {
     //     { _id: 11, url: "/Cancun2.jpg", title: "Cancun", description: "City description" },
     //     { _id: 12, url: "/Francia4.jpg", title: "Francia", description: "City description" },
     // ]
-    useEffect(() => {
-        axios.get(url + '/cities')
-            .then(response => setItems(response.data))
-    }, []);
+    // useEffect(() => {
+    //     axios.get(url + '/cities')
+    //         .then(response => setItems(response.data))
+    // }, []);
+
+    const {
+        data: items,
+        error,
+        isLoading,
+        isSuccess,
+        isFailed,
+    } = useGetAllCitiesQuery();
+
 
     return (
         <Carousel data={items} range={4} interval={5} slides={3} />

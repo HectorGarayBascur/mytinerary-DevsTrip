@@ -30,11 +30,11 @@ export default function Cities() {
   // const inputSearch = useRef()
 
 
-  useEffect(() => {
-    axios.get(url + '/cities?city=' + value)
-      .then(response => { setItems(response.data) })
-      .catch(error => console.log(error))
-  }, [value]);
+  // useEffect(() => {
+  //   axios.get(url + '/cities?city=' + value)
+  //     .then(response => { setItems(response.data) })
+  //     .catch(error => console.log(error))
+  // }, [value]);
 
   const valueCity = (event) => {
     setValue(event.target.value)
