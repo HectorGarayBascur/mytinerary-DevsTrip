@@ -29,7 +29,7 @@ export default function Comments() {
                                     <h4>pedrito@gmail.com</h4>
                                 </div>
                                 <div className="comment">
-                                    <p>epico</p>
+                                    <p>epic</p>
                                 </div>
                             </div>
                         </div>
