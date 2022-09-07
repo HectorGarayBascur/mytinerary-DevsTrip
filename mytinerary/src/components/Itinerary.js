@@ -4,11 +4,15 @@ import axios from 'axios'
 import Comments from './Comments';
 import Activities from './Activities';
 import { useEffect, useState } from 'react'
+import { useGetActivitiesQuery } from '../features/activitiesAPI';
+
 
 export default function Itinerary({ itinerary }) {
+    const { data: activities } = useGetActivitiesQuery(itinerary._id)
+
     console.log(itinerary)
     return (
-  
+
         <div className='container-padre-itinerary'>
             <div className="data-card">
                 <h2>{itinerary.name}</h2>
@@ -19,7 +23,11 @@ export default function Itinerary({ itinerary }) {
                 <p>likes{itinerary.likes}</p>
                 <p>tags{itinerary.tags}</p>
             </div>
-            <Activities />
+            {activities?.response.map(activity =>
+                // console.log(itinerary)
+                <Activities activity={activity} />
+            )
+            }
             <Comments />
         </div>
     )
