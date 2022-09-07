@@ -1,6 +1,7 @@
 import '../styles/Activities.css'
 
 export default function Activities({ activity }) {
+
     return (
         <div className='container-activities-padre'>
             <div className='container-activities'>
