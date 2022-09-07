@@ -82,7 +82,7 @@
 
 .container-login a {
     font-size: 12px;
-    color: #73B1BF;
+    color: white;
     text-decoration: none;
 }
 
@@ -98,9 +98,13 @@
     display: none;
 }
 
+.container-hamburger img{
+    cursor: pointer;
+}
+
 .container-hamburger a {
     font-size: 12px;
-    color: #73B1BF;
+    color: white;
 }
 
 .container-hamburger a:hover {
