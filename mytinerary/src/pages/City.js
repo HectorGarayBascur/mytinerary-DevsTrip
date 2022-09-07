@@ -4,6 +4,8 @@ import '../styles/City.css'
 import { Link as LinkRouter } from 'react-router-dom';
 import axios from 'axios';
 import Itinerary from '../components/Itinerary';
+import url from '../api';
+
 
 export default function City() {
     const { id } = useParams()
@@ -11,7 +13,7 @@ export default function City() {
     const date = new Date(cityData.fundation)
 
     useEffect(() => {
-        axios.get('http://localhost:4000/cities/' + id)
+        axios.get(url + '/cities/' + id)
             .then(response => {
                 setCityData(response.data.response)
             })

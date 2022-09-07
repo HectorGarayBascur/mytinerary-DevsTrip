@@ -64,7 +64,7 @@ export default function Carousel(props) {
                         <Arrow icon={"/arrowleft.png"} click={previous} />
                     </div>
                     <div className='slide2'>
-                        {items.slice(start, end).map(itemView)}
+                        {items?.slice(start, end).map(itemView)}
                     </div>
                     <div>
                         <Arrow icon={"/arrowright.png"} click={next} />
