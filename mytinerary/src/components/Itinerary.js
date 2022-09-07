@@ -4,33 +4,22 @@ import axios from 'axios'
 import Comments from './Comments';
 import { useEffect, useState } from 'react'
 
-export default function Itinerary() {
-
-    const { id } = useParams()
-    console.log({ id })
-    const [itineraryData, setItineraryData] = useState([])
-
-    useEffect(() => {
-        axios.get('http://localhost:4000/itineraries/'+id)
-            .then(response => { 
-                setItineraryData(response.data)
-                console.log(response.data)
-            })
-    }, []);
-
+export default function Itinerary({ itinerary }) {
+    console.log(itinerary)
     return (
+  
         <div>
             <div className="data-card">
-            <h2>{itineraryData.name}</h2>
-            <h4>{itineraryData.city}</h4>
-            <div className='data-p-d'>
-                <p>Price: ${itineraryData.price}</p>
-                <p>Duration: {itineraryData.name}</p>
+                <h2>{itinerary.name}</h2>
+                <div className='data-p-d'>
+                    <p>Price: ${itinerary.price}</p>
+                    <p>Duration:{itinerary.duration}</p>
+                </div>
+                <p>likes{itinerary.likes}</p>
+                <p>tags{itinerary.tags}</p>
             </div>
-            <p>{itineraryData.likes}</p>
-            <p>{itineraryData.tags}</p>
+            <Comments />
         </div>
-        <Comments />
-        </div>
+
     )
 }

@@ -45,7 +45,7 @@ export default function Cities() {
   // }) 
 
   const filteredCities = []
-  items?.forEach(item => {
+  items?.map(item => {
     //la city tiene que contener el input
 
     if (item.city.toLowerCase().includes(value.toLowerCase())) {
