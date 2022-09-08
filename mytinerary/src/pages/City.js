@@ -7,7 +7,6 @@ import Itinerary from '../components/Itinerary';
 import url from '../api';
 import { useGetCityQuery } from '../features/citiesAPI';
 import { useGetItinerariesQuery } from '../features/itinerariesAPI';
-import { useGetActivitiesQuery } from '../features/activitiesAPI';
 
 
 export default function City() {
@@ -15,8 +14,8 @@ export default function City() {
     // const [cityData, setCityData] = useState({})
     const { data: city } = useGetCityQuery(id)
     const { data: itineraries } = useGetItinerariesQuery(id)
-    const { data: activities } = useGetActivitiesQuery(id)
     const date = new Date(city?.response.fundation)
+    console.log(date.getFullYear())
 
     // useEffect(() => {
     //     axios.get(url + '/cities/' + id)
@@ -73,7 +72,7 @@ export default function City() {
             </div>
             {itineraries?.response.map(itinerary =>
                 // console.log(itinerary)
-                <Itinerary itinerary={itinerary} />
+                <Itinerary itinerary={itinerary} key={itinerary._id} />
             )
             }
         </div>
