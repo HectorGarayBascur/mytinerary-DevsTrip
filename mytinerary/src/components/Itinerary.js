@@ -23,11 +23,13 @@ export default function Itinerary({ itinerary }) {
                 <p>likes{itinerary.likes}</p>
                 <p>tags{itinerary.tags}</p>
             </div>
-            {activities?.response.map(activity =>
-                // console.log(itinerary)
-                <Activities activity={activity} />
-            )
-            }
+            <div className='container-activities'>
+                {activities?.response.map(activity =>
+                    // console.log(itinerary)
+                    <Activities activity={activity} />
+                )
+                }
+            </div>
             <Comments />
         </div>
     )
