@@ -14,8 +14,8 @@ export default function Carousel(props) {
     const interval = props.interval * 1000
 
     const itemView = (item) => (
-        <div key={item._id}>
-            <LinkRouter className='item' to='*'><img src={item.photo} alt={item.city} /></LinkRouter>
+        <div key={item._id} >
+            <LinkRouter className='item' to={'/cities/' + item._id}><img src={item.photo} alt={item.city} /></LinkRouter>
             <p className='p-carousel'>{item.city}</p>
         </div>
     )

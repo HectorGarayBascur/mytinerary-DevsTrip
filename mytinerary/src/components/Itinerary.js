@@ -26,7 +26,7 @@ export default function Itinerary({ itinerary }) {
             <div className='container-activities'>
                 {activities?.response.map(activity =>
                     // console.log(itinerary)
-                    <Activities activity={activity} />
+                    <Activities activity={activity} key={activity._id} />
                 )
                 }
             </div>
