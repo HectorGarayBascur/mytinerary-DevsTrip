@@ -20,6 +20,7 @@ export default function Footer() {
         <LinkRouter to='/cities' className="p-footer-nav">Cities</LinkRouter>
         <LinkRouter to='/newcities' className="p-footer-nav">New Cities</LinkRouter>
         <LinkRouter to='/editCities' className="p-footer-nav">Edit Cities</LinkRouter>
+        <LinkRouter to='/mytineraries' className="p-footer-nav">MyTineraries</LinkRouter>
       </div>
 
       <div className='colThree'>

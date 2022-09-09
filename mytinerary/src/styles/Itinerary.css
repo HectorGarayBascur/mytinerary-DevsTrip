@@ -1,0 +1,122 @@
+.container-padre-itinerary {
+    background-color: rgba(228, 228, 228, 0.733);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.data-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    min-height: 168;
+    overflow: hidden;
+    border-radius: .5em;
+    text-decoration: none;
+    background: white;
+    margin: 1em;
+    padding: .6em 1.5em;
+    box-shadow: 0 1.5em 2.5em -.5em rgba(#000000, .1);
+    transition: transform .45s ease, background .45s ease;
+}
+
+.data-card h2 {
+    color: black;
+    font-weight: bold;
+    line-height: 1;
+    padding-bottom: 1em;
+    margin: 0 0 1rem;
+    border-bottom: 2px solid #73B1BF;
+    transition: color .45s ease, border .45s ease;
+    text-align: center;
+}
+
+.data-card h4 {
+    color: #627084;
+    text-transform: uppercase;
+    font-size: 1.125em;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    margin: 0 0 1.777777778em;
+    transition: color .45s ease;
+}
+
+.data-card p {
+    color: #73B1BF;
+    line-height: 1.8;
+    margin: 0 0 0.2em;
+    transform: translateY(-1em);
+    transition: opacity .45s ease, transform .5s ease;
+}
+
+.data-p-d{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.link-text {
+    display: block;
+    color: #753BBD;
+    font-size: 1.125em;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: auto 0 0;
+    transition: color .45s ease;
+}
+
+.link-text svg {
+    margin-left: .5em;
+    transition: transform .6s ease;
+}
+
+.link-text path {
+    transition: fill .45s ease;
+}
+
+.data-card:hover {
+    background: #73B1BF;
+    transform: scale(1.02);
+}
+
+.data-card:hover h3 {
+    color: #FFFFFF;
+    border-bottom-color: #A754C4;
+}
+
+.data-card:hover h4 {
+    color: #FFFFFF;
+}
+
+.data-card:hover p {
+    color: white;
+    opacity: 1;
+    transform: none;
+}
+
+.link-text {
+    color: #FFFFFF;
+}
+
+.link-text svg {
+    animation: point 1.25s infinite alternate;
+}
+
+.link-text path {
+    fill: #FFFFFF;
+}
+
+@keyframes point {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(.125em);
+    }
+}

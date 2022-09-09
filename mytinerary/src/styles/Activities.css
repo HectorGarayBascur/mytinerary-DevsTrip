@@ -1,0 +1,45 @@
+.container-activities-padre {
+    width: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 10px 0;
+}
+
+.container-activities {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    /* background-color: blueviolet; */
+    justify-content: center;
+    padding: 10px 0 10px 0;
+    gap: 20px;
+}
+
+.container-activities h3 {
+    text-align: center;
+    background-color: #73B1BF;
+    color: white;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1rem;
+}
+
+.img-activity {
+    background-color: black;
+    width: 300px;
+    height: 200px;
+}
+
+.img-activity img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.activity1 {
+    width: 300px;
+}
