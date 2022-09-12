@@ -5,10 +5,21 @@ import Comments from './Comments';
 import Activities from './Activities';
 import { useEffect, useState } from 'react'
 import { useGetActivitiesQuery } from '../features/activitiesAPI';
+import { useGetCommentsQuery } from '../features/commentsAp';
 
 
 export default function Itinerary({ itinerary }) {
     const { data: activities } = useGetActivitiesQuery(itinerary._id)
+    const { data: users } = useGetCommentsQuery(itinerary._id)
+
+    const [open, setOpen] = useState(false)
+    const openComments = () => {
+        if (open === true) {
+            setOpen(false)
+        } else {
+            setOpen(true)
+        }
+    }
 
     console.log(itinerary)
     return (
@@ -30,7 +41,22 @@ export default function Itinerary({ itinerary }) {
                 )
                 }
             </div>
-            <Comments />
+            <div className="container-comments">
+                <h2>Comments</h2>
+                <img className="icon-despleg" onClick={openComments} src="https://cdn-icons-png.flaticon.com/512/3519/3519316.png" alt="" width='25px'></img>
+                <div className='container2-comments'>
+                    {
+                        open
+                            ? <div className='container3-comments'>
+                                {users?.response.map(user =>
+                                    <Comments user={user} key={user._id} />
+                                )
+                                }
+                            </div>
+                            : null
+                    }
+                </div>
+            </div>
         </div>
     )
 }
