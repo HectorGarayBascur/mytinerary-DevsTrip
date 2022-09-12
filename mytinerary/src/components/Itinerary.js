@@ -5,12 +5,12 @@ import Comments from './Comments';
 import Activities from './Activities';
 import { useEffect, useState } from 'react'
 import { useGetActivitiesQuery } from '../features/activitiesAPI';
-import { useGetCommentsQuery } from '../features/commentsAp';
+import { useGetUsersQuery } from '../features/usersAPI';
 
 
 export default function Itinerary({ itinerary }) {
     const { data: activities } = useGetActivitiesQuery(itinerary._id)
-    const { data: users } = useGetCommentsQuery(itinerary._id)
+    const { data: users } = useGetUsersQuery(itinerary._id)
 
     const [open, setOpen] = useState(false)
     const openComments = () => {
