@@ -9,6 +9,7 @@ import UnderConstruction from './pages/UnderConstruction';
 import FooterLayout from './layouts/FooterLayout'
 import ScrollToTop from './components/ScrollToTop';
 import MyTineraries from './pages/MyTineraries';
+import SignUp from './pages/SignUp';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Hero />} />
             <Route path='/cities' element={<Cities />} />
+            <Route path='/signup' element={<SignUp />} />
             <Route path='/cities/:id' element={<City />} />
             <Route path='/newcities' element={<NewCities />} />
             <Route path='/editcities' element={<EditCities />} />
