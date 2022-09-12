@@ -3,7 +3,7 @@ import citySlice from './citySlice'
 import citiesAPI from './citiesAPI'
 import itineraiesAPI from './itinerariesAPI'
 import activitiesAPI from './activitiesAPI'
-import commentsAPI from './commentsAp'
+import commentsAPI from './commentsAPI'
 
 export default configureStore({
     reducer: {
