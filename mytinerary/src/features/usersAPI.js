@@ -17,6 +17,14 @@ export const usersAPI = createApi({
                     url:"users/auth/signup",
                     method:"POST",
                     body:user,
+                }}
+        }),
+        getLogin: builder.mutation({
+            query(user){
+                return {
+                    url:"users/signin",
+                    method:"POST",
+                    body:user,
                 }
             }
         })
@@ -25,4 +33,4 @@ export const usersAPI = createApi({
 })
 
 export default usersAPI
-export const { useGetUsersQuery, useGetNewUserMutation } = usersAPI
+export const { useGetUsersQuery, useGetNewUserMutation, useGetLoginMutation } = usersAPI
