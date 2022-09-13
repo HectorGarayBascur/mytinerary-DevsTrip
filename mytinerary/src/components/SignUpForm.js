@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import SignUpGoogle from '../components/SignUpGoogle'
 import { useGetNewUserMutation } from '../features/usersAPI'
 import {useRef} from "react"
