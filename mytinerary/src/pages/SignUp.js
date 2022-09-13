@@ -1,11 +1,16 @@
 import React from 'react'
-import SignUpGoogle from '../components/SignUpGoogle'
+import "../styles/SignUp.css"
+import SignUpForm from '../components/SignUpForm'
+
+
+
 
 
 export default function SignUp() {
   return (
-    <div>
-         <SignUpGoogle/>
+
+    <div className='form-newcity'>
+    <SignUpForm/>
     </div>
   )
 }
