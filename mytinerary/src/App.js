@@ -10,6 +10,7 @@ import FooterLayout from './layouts/FooterLayout'
 import ScrollToTop from './components/ScrollToTop';
 import MyTineraries from './pages/MyTineraries';
 import SignUp from './pages/SignUp';
+import SignIn from './components/SignIn';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path='/' element={<Hero />} />
             <Route path='/cities' element={<Cities />} />
             <Route path='/signup' element={<SignUp />} />
+            <Route path='/signin' element={<SignIn />} />
             <Route path='/cities/:id' element={<City />} />
             <Route path='/newcities' element={<NewCities />} />
             <Route path='/editcities' element={<EditCities />} />

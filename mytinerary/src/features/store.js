@@ -16,4 +16,8 @@ export default configureStore({
         [commentsAPI.reducerPath]: commentsAPI.reducer
 
     },
+    middleware: (getAllCities)=> getAllCities({
+        immutableCheck:false,
+        serializableCheck:false
+    })
 })

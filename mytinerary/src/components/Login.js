@@ -16,8 +16,8 @@ export default function LogIn() {
             <img onClick={openMenu} src="/icon-login.png" alt="" width='25px'></img>
             <div>
                 {
-                    open
-                        ? <ul>
+                    open? 
+                    <ul>
                             <li><a href="#">Profile</a></li>
                             <li><a href="#">Log In</a></li>
                         </ul>
