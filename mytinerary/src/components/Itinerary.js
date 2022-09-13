@@ -6,11 +6,15 @@ import Activities from './Activities';
 import { useEffect, useState } from 'react'
 import { useGetActivitiesQuery } from '../features/activitiesAPI';
 import { useGetUsersQuery } from '../features/usersAPI';
+import { useGetCommentsQuery } from '../features/commentsAPI';
 
 
 export default function Itinerary({ itinerary }) {
     const { data: activities } = useGetActivitiesQuery(itinerary._id)
     const { data: users } = useGetUsersQuery(itinerary._id)
+    const { data: comments } = useGetCommentsQuery(itinerary._id)
+    console.log(comments, 'mirar aqui');
+
 
     const [open, setOpen] = useState(false)
     const openComments = () => {
@@ -21,7 +25,6 @@ export default function Itinerary({ itinerary }) {
         }
     }
 
-    console.log(itinerary)
     return (
 
         <div className='container-padre-itinerary'>
@@ -48,9 +51,10 @@ export default function Itinerary({ itinerary }) {
                     {
                         open
                             ? <div className='container3-comments'>
-                                {users?.response.map(user =>
-                                    <Comments user={user} key={user._id} />
-                                )
+                                {
+                                    comments?.response.length === 0
+                                        ? <div>No comments</div>
+                                        : comments?.response.map(comment => <Comments comment={comment} key={comment._id} />)
                                 }
                             </div>
                             : null
