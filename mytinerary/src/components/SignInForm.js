@@ -1,6 +1,6 @@
 import React from "react";
 import { useGetLoginMutation } from "../features/usersAPI";
-import SignInGoogle from "../components/SignInGoogle";
+import SignInGoogle from "./SignInGoogle";
 import { useRef } from "react";
 
 function Input({ label, name }) {
