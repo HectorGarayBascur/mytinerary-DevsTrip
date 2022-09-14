@@ -1,6 +1,8 @@
 import { useState, useRef } from "react"
 import '../styles/NewCities.css'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Input({ label, name }) {
     return (
@@ -33,11 +35,27 @@ export default function FormNewCities() {
             // enviar city al backend post http://localhost:4000/cities
             axios.post('http://localhost:4000/cities', city).then(res => {
                 // si responde 201 decir que la ciudad fue creada con exito
-                alert(res.data.message)
+                toast.success('You have created a new city!!', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                });
                 console.log(res)
             }).catch(error => {
                 // si responde 400 decir que ciudad no fue creada
-                alert(error.response.data.message)
+                toast.error('Incorrect data', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                });
                 console.error(error)
             })
             // newCities.push(city);
@@ -54,6 +72,7 @@ export default function FormNewCities() {
             <Input label="Population:" name="population" />
             <Input label="Fundation:" name="fundation" />
             <button type="submit" onClick={handleSubmit}>Submit</button>
+            <ToastContainer />
         </form>
     );
 }
