@@ -1,6 +1,6 @@
 import React from "react";
 import { useGetLoginMutation } from "../features/usersAPI";
-import SignInGoogle from "../components/SignInGoogle";
+import SignInGoogle from "./SignInGoogle";
 import { useRef } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
