@@ -28,29 +28,30 @@ export default function SignInForm() {
       password: loginForm.get("password"),
       from: "form",
     };
-    await userlog(loginDataUser);
-
-    if(!userlog.logged){
-      toast.success('logea!!', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-    });
-    }else{
-      toast.error('Incorrect data', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-    });
-    }
+    await userlog(loginDataUser)
+    
+  //   .then((res) => {
+  //     toast.success('login!!', {
+  //         position: "top-center",
+  //         autoClose: 5000,
+  //         hideProgressBar: false,
+  //         closeOnClick: true,
+  //         pauseOnHover: false,
+  //         draggable: true,
+  //         progress: undefined,
+  //     });
+  // }).catch(error => {
+  //     console.error(error);
+  //     toast.error('Incorrect data', {
+  //         position: "top-center",
+  //         autoClose: 5000,
+  //         hideProgressBar: false,
+  //         closeOnClick: true,
+  //         pauseOnHover: false,
+  //         draggable: true,
+  //         progress: undefined,
+  //     });
+  // })
 
     form.current.reset();
     console.log(userlog);

@@ -38,27 +38,28 @@ export default function SignUpForm() {
     }
     await newUser(user)
 
-    if(!userlog.logged){
-      toast.success('logea!!', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-    });
-    }else{
-      toast.error('Incorrect data', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-    });
-    }
+  //   .then((res) => {
+  //     toast.success('login!!', {
+  //         position: "top-center",
+  //         autoClose: 5000,
+  //         hideProgressBar: false,
+  //         closeOnClick: true,
+  //         pauseOnHover: false,
+  //         draggable: true,
+  //         progress: undefined,
+  //     });
+  // }).catch(error => {
+  //     console.error(error);
+  //     toast.error('Incorrect data', {
+  //         position: "top-center",
+  //         autoClose: 5000,
+  //         hideProgressBar: false,
+  //         closeOnClick: true,
+  //         pauseOnHover: false,
+  //         draggable: true,
+  //         progress: undefined,
+  //     });
+  // })
 
     console.log(user)
 

@@ -1,12 +1,12 @@
 import React from 'react'
 import "../styles/SignUp.css"
-import SignUpForm from '../components/SignUpForm'
+import SignInForm from '../components/SignInForm'
 
-export default function SignUp() {
+export default function SignIn() {
   return (
 
     <div className='form-newcity'>
-    <SignUpForm/>
+    <SignInForm/>
     </div>
   )
 }
