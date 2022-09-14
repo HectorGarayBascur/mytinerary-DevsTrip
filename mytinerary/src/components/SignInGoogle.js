@@ -29,7 +29,7 @@ export default function SignUpGoogle() {
     });
     google.accounts.id.renderButton(
       buttonDiv.current,
-      { theme: "outline", size: "medium", text: "signin_width" }  // customization attributes
+      { theme: "outline", size: "medium" }  // customization attributes
     );
   }, [])
   return (

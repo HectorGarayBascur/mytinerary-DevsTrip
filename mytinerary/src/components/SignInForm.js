@@ -2,6 +2,8 @@ import React from "react";
 import { useGetLoginMutation } from "../features/usersAPI";
 import SignInGoogle from "../components/SignInGoogle";
 import { useRef } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Input({ label, name }) {
   return (
@@ -27,6 +29,29 @@ export default function SignInForm() {
       from: "form",
     };
     await userlog(loginDataUser);
+
+    if(!userlog.logged){
+      toast.success('logea!!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+    });
+    }else{
+      toast.error('Incorrect data', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+    });
+    }
+
     form.current.reset();
     console.log(userlog);
   };
@@ -41,6 +66,7 @@ export default function SignInForm() {
           Login!
         </button>
         <SignInGoogle />
+        <ToastContainer />
       </form>
     </div>
   );
