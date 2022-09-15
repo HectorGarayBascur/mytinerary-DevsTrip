@@ -44,5 +44,6 @@ export const {
   useGetUsersQuery,
   useGetNewUserMutation,
   useGetLoginMutation,
+  // useGetLoginQuery,
   useGetSignOutMutation,
 } = usersAPI;
