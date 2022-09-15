@@ -16,6 +16,7 @@ export default function City() {
     const { data: itineraries } = useGetItinerariesQuery(id)
     const date = new Date(city?.response.fundation)
     console.log(date.getFullYear())
+    console.log(id)
 
     // useEffect(() => {
     //     axios.get(url + '/cities/' + id)
