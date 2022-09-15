@@ -30,10 +30,10 @@ export const usersAPI = createApi({
       },
     }),
     getSignOut: builder.mutation({
-      query: ({ id, ...rest }) => ({
+      query: ({ id, ...data }) => ({
         url: `/auth/signout/${id}`,
         method: "PATCH",
-        body: rest,
+        body: data,
       }),
     }),
   }),

@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link as LinkRouter } from "react-router-dom";
 
-import { useGetSignOutMutation, useGetLoginMutation } from "../features/usersAPI";
+import {
+  useGetSignOutMutation,
+  useGetLoginMutation,
+} from "../features/usersAPI";
 import { setCredentials } from "../features/authSlice";
 import { useAuth } from "../hooks/useAuth";
 
@@ -22,16 +25,18 @@ export default function LogIn() {
   const [open, setOpen] = useState(false);
 
   const [signOut] = useGetSignOutMutation();
-
+  console.log(currentUser);
   const handleLogOut = async (e) => {
     try {
       let object = {
         logged: false,
-        id: currentUser._id,
+        id: currentUser.id,
       };
       await signOut(object);
       dispatch(setCredentials({ user: null }));
+
       localStorage.removeItem("user");
+
       // window.location.reload();
     } catch (error) {
       console.log(error);
