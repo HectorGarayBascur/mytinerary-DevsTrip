@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
-import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { useGetLoginMutation, useGetLoginQuery } from "../features/usersAPI";
 import SignInGoogle from "./SignInGoogle";
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from "../hooks/useAuth";
 import { setCredentials } from "../features/authSlice";
 
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 function Input({ label, name }) {
   return (
@@ -32,7 +32,9 @@ export default function SignInForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const loginForm = new FormData(form.current);
+
     const loginDataUser = {
       mail: loginForm.get("mail"),
       password: loginForm.get("password"),
@@ -42,7 +44,7 @@ export default function SignInForm() {
       const response = await userlog(loginDataUser).unwrap();
       const user = response.response.user;
       dispatch(setCredentials({ user }));
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(user));
       toast.success(response.message, {
         position: "top-center",
         autoClose: 5000,
@@ -52,7 +54,7 @@ export default function SignInForm() {
         draggable: true,
         progress: undefined,
       });
-      navigate('/');
+      navigate("/");
     } catch (error) {
       toast.error(error.data?.message, {
         position: "top-center",
@@ -64,28 +66,6 @@ export default function SignInForm() {
         progress: undefined,
       });
     }
-    //   .then((res) => {
-    //     toast.success('login!!', {
-    //         position: "top-center",
-    //         autoClose: 5000,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: false,
-    //         draggable: true,
-    //         progress: undefined,
-    //     });
-    // }).catch(error => {
-    //     console.error(error);
-    //     toast.error('Incorrect data', {
-    //         position: "top-center",
-    //         autoClose: 5000,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: false,
-    //         draggable: true,
-    //         progress: undefined,
-    //     });
-    // })
 
     form.current.reset();
     console.log(userlog);
