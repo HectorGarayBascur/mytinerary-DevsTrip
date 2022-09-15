@@ -11,6 +11,9 @@ export const usersAPI = createApi({
     getUsers: builder.query({
       query: (id) => "/users?itinerary=" + id,
     }),
+    getUsers2: builder.query({
+      query: (id) => '/users/' + id,
+    }),
     getNewUser: builder.mutation({
       query(user) {
         return {
@@ -46,4 +49,5 @@ export const {
   useGetLoginMutation,
   // useGetLoginQuery,
   useGetSignOutMutation,
+  useGetUsers2Query
 } = usersAPI;
