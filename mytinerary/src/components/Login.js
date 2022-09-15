@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link as LinkRouter } from "react-router-dom";
 
-import { useGetSignOutMutation, useGetUsersQuery } from "../features/usersAPI";
+import { useGetSignOutMutation, useGetLoginMutation } from "../features/usersAPI";
+import { setCredentials } from "../features/authSlice";
+import { useAuth } from "../hooks/useAuth";
 
 export default function LogIn() {
+  const dispatch = useDispatch();
   const [logged, setLogged] = useState(false);
+  const { user: currentUser } = useAuth();
 
   const openMenu = () => {
     if (open === true) {
@@ -18,27 +23,26 @@ export default function LogIn() {
 
   const [signOut] = useGetSignOutMutation();
 
-  let user = JSON.parse(localStorage.getItem("userLogged"));
   const handleLogOut = async (e) => {
     try {
       let object = {
         logged: false,
-        id: user[0]._id,
+        id: currentUser._id,
       };
       await signOut(object);
+      dispatch(setCredentials({ user: null }));
       localStorage.removeItem("user");
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       console.log(error);
     }
   };
 
-  const { data: users } = useGetUsersQuery();
-  let usersResponse = users?.response;
-  let userLogged = usersResponse?.filter((user) => user.logged);
-  if (userLogged?.length > 0) {
-    localStorage.setItem("userLogged", JSON.stringify(userLogged));
-  }
+  const [userlog] = useGetLoginMutation();
+  // const currentUser = result.data?.response.user;
+  // if (currentUser) {
+  //   localStorage.setItem("userLogged", JSON.stringify(currentUser));
+  // }
 
   return (
     <div className="container-login">
@@ -46,10 +50,10 @@ export default function LogIn() {
       <div>
         {open ? (
           <div>
-            {users?.length > 0 ? (
+            {currentUser ? (
               <>
                 <div>
-                  <p>{users[0].name}</p>
+                  <p>{currentUser.name}</p>
                 </div>
                 <div>
                   <button type="button" onClick={handleLogOut}>
