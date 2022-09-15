@@ -32,34 +32,34 @@ export default function SignUpForm() {
       photo: formData.get("photo"),
       password: formData.get("password"),
       from: "form",
-      role: "user"
+      role: 'user'
 
 
     }
     await newUser(user)
 
-  //   .then((res) => {
-  //     toast.success('login!!', {
-  //         position: "top-center",
-  //         autoClose: 5000,
-  //         hideProgressBar: false,
-  //         closeOnClick: true,
-  //         pauseOnHover: false,
-  //         draggable: true,
-  //         progress: undefined,
-  //     });
-  // }).catch(error => {
-  //     console.error(error);
-  //     toast.error('Incorrect data', {
-  //         position: "top-center",
-  //         autoClose: 5000,
-  //         hideProgressBar: false,
-  //         closeOnClick: true,
-  //         pauseOnHover: false,
-  //         draggable: true,
-  //         progress: undefined,
-  //     });
-  // })
+    //   .then((res) => {
+    //     toast.success('login!!', {
+    //         position: "top-center",
+    //         autoClose: 5000,
+    //         hideProgressBar: false,
+    //         closeOnClick: true,
+    //         pauseOnHover: false,
+    //         draggable: true,
+    //         progress: undefined,
+    //     });
+    // }).catch(error => {
+    //     console.error(error);
+    //     toast.error('Incorrect data', {
+    //         position: "top-center",
+    //         autoClose: 5000,
+    //         hideProgressBar: false,
+    //         closeOnClick: true,
+    //         pauseOnHover: false,
+    //         draggable: true,
+    //         progress: undefined,
+    //     });
+    // })
 
     console.log(user)
 

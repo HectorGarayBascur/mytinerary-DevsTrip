@@ -6,7 +6,7 @@ export default function SignUp() {
   return (
 
     <div className='form-newcity'>
-    <SignUpForm/>
+      <SignUpForm />
     </div>
   )
 }
