@@ -13,7 +13,7 @@ export default function Itinerary({ itinerary }) {
     const { data: activities } = useGetActivitiesQuery(itinerary._id)
     const { data: users } = useGetUsersQuery(itinerary._id)
     const { data: comments } = useGetCommentsQuery(itinerary._id)
-    console.log(comments, 'mirar aqui');
+    // console.log(comments, 'mirar aqui');
 
 
     const [open, setOpen] = useState(false)

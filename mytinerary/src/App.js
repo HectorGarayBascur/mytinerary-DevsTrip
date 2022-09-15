@@ -48,7 +48,7 @@ function App() {
             <Route path='/newcities' element={admin ? <NewCities /> : <UnderConstruction />} />
             <Route path='/editcities' element={admin ? <EditCities /> : <UnderConstruction />} />
             <Route path='*' element={<UnderConstruction />} />
-            <Route path='/mytineraries' element={currentUser ? <UnderConstruction /> : <MyTineraries />} />
+            <Route path='/mytineraries/:id' element={currentUser ? <MyTineraries /> : <UnderConstruction />} />
           </Routes>
         </FooterLayout>
       </BrowserRouter>
