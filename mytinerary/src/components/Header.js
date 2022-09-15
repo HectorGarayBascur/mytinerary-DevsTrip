@@ -6,16 +6,23 @@ import { useAuth } from '../hooks/useAuth';
 
 import '../styles/Header.css'
 
+const user = JSON.parse(localStorage.getItem('user'))
+
 const pages = [
   { _id: 1, name: 'Home', to: '/' },
   { _id: 2, name: 'Cities', to: '/cities' },
   { _id: 3, name: 'New Cities', to: '/newcities', private: true },
   { _id: 3, name: 'New Users', to: '/newusers', private: true },
   { _id: 5, name: 'Edit Cities', to: '/editcities', private: true },
-  { _id: 6, name: 'MyTineraries', to: '/mytineraries' },
   // {_id:4, name: 'UnderConstruction', to: '/underconstruction' },
 ]
 
+if(user){
+ pages.push({ _id: 6, name: 'MyTineraries', to: '/mytineraries/'+ user.id })
+}else{
+ pages.push({ _id: 6, name: 'MyTineraries', to: '/mytineraries/'})
+}
+console.log(pages)
 const link = (page) => <LinkRouter className='Header-link' key={page._id} to={page.to}>{page.name}</LinkRouter>
 
 export default function Header() {
@@ -72,5 +79,3 @@ export default function Header() {
     </div>
   )
 }
-
-
