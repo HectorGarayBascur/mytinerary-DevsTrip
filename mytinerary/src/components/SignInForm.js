@@ -1,8 +1,13 @@
-import React from "react";
-import { useGetLoginMutation } from "../features/usersAPI";
+import React, { useRef } from "react";
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+
+import { useGetLoginMutation, useGetLoginQuery } from "../features/usersAPI";
 import SignInGoogle from "./SignInGoogle";
-import { useRef } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { useAuth } from '../hooks/useAuth';
+import { setCredentials } from "../features/authSlice";
+
 import 'react-toastify/dist/ReactToastify.css';
 
 function Input({ label, name }) {
@@ -17,8 +22,13 @@ function Input({ label, name }) {
 export default function SignInForm() {
   const buttonDiv = useRef(null);
   const form = useRef();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [userlog] = useGetLoginMutation();
+  const auth = useAuth();
+  // const currentUser = useGetLoginQuery();
+  // console.log(currentUser)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,30 +38,54 @@ export default function SignInForm() {
       password: loginForm.get("password"),
       from: "form",
     };
-    await userlog(loginDataUser)
-    
-  //   .then((res) => {
-  //     toast.success('login!!', {
-  //         position: "top-center",
-  //         autoClose: 5000,
-  //         hideProgressBar: false,
-  //         closeOnClick: true,
-  //         pauseOnHover: false,
-  //         draggable: true,
-  //         progress: undefined,
-  //     });
-  // }).catch(error => {
-  //     console.error(error);
-  //     toast.error('Incorrect data', {
-  //         position: "top-center",
-  //         autoClose: 5000,
-  //         hideProgressBar: false,
-  //         closeOnClick: true,
-  //         pauseOnHover: false,
-  //         draggable: true,
-  //         progress: undefined,
-  //     });
-  // })
+    try {
+      const response = await userlog(loginDataUser).unwrap();
+      const user = response.response.user;
+      dispatch(setCredentials({ user }));
+      localStorage.setItem('user', JSON.stringify(user));
+      toast.success(response.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+      navigate('/');
+    } catch (error) {
+      toast.error(error.data?.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    //   .then((res) => {
+    //     toast.success('login!!', {
+    //         position: "top-center",
+    //         autoClose: 5000,
+    //         hideProgressBar: false,
+    //         closeOnClick: true,
+    //         pauseOnHover: false,
+    //         draggable: true,
+    //         progress: undefined,
+    //     });
+    // }).catch(error => {
+    //     console.error(error);
+    //     toast.error('Incorrect data', {
+    //         position: "top-center",
+    //         autoClose: 5000,
+    //         hideProgressBar: false,
+    //         closeOnClick: true,
+    //         pauseOnHover: false,
+    //         draggable: true,
+    //         progress: undefined,
+    //     });
+    // })
 
     form.current.reset();
     console.log(userlog);
@@ -67,7 +101,6 @@ export default function SignInForm() {
           Login!
         </button>
         <SignInGoogle />
-        <ToastContainer />
       </form>
     </div>
   );
