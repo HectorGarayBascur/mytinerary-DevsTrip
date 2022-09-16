@@ -1,8 +1,14 @@
 import { useEffect, useRef } from "react";
 import * as jose from "jose";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setCredentials } from "../features/authSlice";
 import { useGetNewUserMutation } from "../features/usersAPI";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function SignUpGoogle() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const buttonDiv = useRef(null);
   let [newUser] = useGetNewUserMutation();
   console.log(buttonDiv.current);
@@ -21,7 +27,36 @@ export default function SignUpGoogle() {
       role: "user",
       from: "google",
     };
-    await newUser(data);
+    try {
+      const response = await newUser(data).unwrap();
+      const user = response.response.user;
+      console.log('mirar aca', user)
+      dispatch(setCredentials({ user }));
+      localStorage.setItem("user", JSON.stringify(user));
+      console.log(response.message)
+      toast.success(response.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+      navigate("/signin");
+    } catch (error) {
+      console.log(error)
+      toast.error(error.data?.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
     console.log(data);
   }
 
