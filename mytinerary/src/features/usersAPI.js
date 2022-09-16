@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import url from "../api";
 
 export const usersAPI = createApi({
   reducerPath: "usersAPI",
 
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:4000/",
+    baseUrl: url,
   }),
 
   endpoints: (builder) => ({
@@ -31,7 +32,7 @@ export const usersAPI = createApi({
     }),
     getSignOut: builder.mutation({
       query: ({ id, ...data }) => ({
-        url: `/auth/signout/${id}`,
+        url: `users/auth/signout/${id}`,
         method: "PATCH",
         body: data,
       }),
