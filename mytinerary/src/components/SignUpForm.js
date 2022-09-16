@@ -1,4 +1,7 @@
 import SignUpGoogle from "../components/SignUpGoogle";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setCredentials } from "../features/authSlice";
 import { useGetNewUserMutation } from "../features/usersAPI";
 import { useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -14,12 +17,14 @@ function Input({ label, name }) {
 }
 
 export default function SignUpForm({ showRole }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const form = useRef();
   const [newUser] = useGetNewUserMutation();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(form.current);
-    const user = {
+    const formUser = {
       name: formData.get("name"),
       lastName: formData.get("lastname"),
       mail: formData.get("mail"),
@@ -29,9 +34,36 @@ export default function SignUpForm({ showRole }) {
       from: "form",
       role: formData.get("role"),
     };
-    await newUser(user);
+    try {
+      const response = await newUser(formUser).unwrap();
+      const user = response.response.user;
+      console.log('mirar aca', user)
+      dispatch(setCredentials({ user }));
+      localStorage.setItem("user", JSON.stringify(user));
+      console.log(response.message)
+      toast.success(response.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+      navigate("/signin");
+    } catch (error) {
+      console.log(error)
+      toast.error(error.data?.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    }
 
-    console.log(user);
 
     form.current.reset();
   };
