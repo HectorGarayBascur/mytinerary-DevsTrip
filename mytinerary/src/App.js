@@ -42,11 +42,12 @@ function App() {
           <Routes>
             <Route path='/' element={<Hero />} />
             <Route path='/cities' element={<Cities />} />
-            <Route path='/signup' element={currentUser ? <Hero /> : <SignUp />} />
+            <Route path='/signup' element={currentUser ? <Hero /> : <SignUp showAdminForm={false} />} />
             <Route path='/signin' element={currentUser ? <Hero /> : <SignIn />} />
             <Route path='/cities/:id' element={<City />} />
             <Route path='/newcities' element={admin ? <NewCities /> : <UnderConstruction />} />
             <Route path='/editcities' element={admin ? <EditCities /> : <UnderConstruction />} />
+            <Route path='/newusers' element={admin ? <SignUp showAdminForm={true} /> : <UnderConstruction />} />
             <Route path='*' element={<UnderConstruction />} />
             <Route path='/mytineraries/:id' element={currentUser ? <MyTineraries /> : <UnderConstruction />} />
           </Routes>
