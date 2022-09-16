@@ -11,12 +11,9 @@ export default function SignUpGoogle() {
   const navigate = useNavigate();
   let [userlog] = useGetLoginMutation();
   const buttonDiv = useRef(null);
-  //  console.log(buttonDiv.current);
 
   async function handleCredentialResponse(response) {
     let userObject = jose.decodeJwt(response.credential);
-    console.log(userObject);
-    //console.log( (buttonDiv.current))
 
     let data = {
       mail: userObject.email,
@@ -24,11 +21,9 @@ export default function SignUpGoogle() {
       from: "google",
     };
 
-    console.log(data);
     try {
       const response = await userlog(data).unwrap();
       const user = response.response.user;
-      console.log('mirar aca', user)
       dispatch(setCredentials({ user }));
       localStorage.setItem("user", JSON.stringify(user));
       toast.success(response.message, {
@@ -42,7 +37,7 @@ export default function SignUpGoogle() {
       });
       navigate("/");
     } catch (error) {
-      console.log(error)
+      console.error(error);
       toast.error(error.data?.message, {
         position: "top-center",
         autoClose: 5000,

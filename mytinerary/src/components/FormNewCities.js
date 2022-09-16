@@ -45,8 +45,8 @@ export default function FormNewCities() {
                     draggable: true,
                     progress: undefined,
                 });
-                console.log(res)
             }).catch(error => {
+                console.error(error);
                 // si responde 400 decir que ciudad no fue creada
                 toast.error('Incorrect data', {
                     position: "top-center",

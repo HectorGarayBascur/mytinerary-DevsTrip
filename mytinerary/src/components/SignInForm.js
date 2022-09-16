@@ -27,7 +27,6 @@ export default function SignInForm() {
   const [userlog] = useGetLoginMutation();
   const auth = useAuth();
   // const currentUser = useGetLoginQuery();
-  // console.log(currentUser)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,6 +54,7 @@ export default function SignInForm() {
       });
       navigate("/");
     } catch (error) {
+      console.error(error);
       toast.error(error.data?.message, {
         position: "top-center",
         autoClose: 5000,
@@ -67,7 +67,6 @@ export default function SignInForm() {
     }
 
     form.current.reset();
-    console.log(userlog);
   };
 
   return (

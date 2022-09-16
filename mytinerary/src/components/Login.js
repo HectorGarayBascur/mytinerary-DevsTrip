@@ -26,7 +26,6 @@ export default function LogIn() {
   const [open, setOpen] = useState(false);
 
   const [signOut] = useGetSignOutMutation();
-  // console.log(currentUser);
   const handleLogOut = async (e) => {
     try {
       let object = {
@@ -34,7 +33,6 @@ export default function LogIn() {
         id: currentUser.id,
       };
       let response = await signOut(object);
-      console.log(response);
       dispatch(setCredentials({ user: null }));
 
       localStorage.removeItem("user");
