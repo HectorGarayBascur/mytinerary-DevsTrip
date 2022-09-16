@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import url from '../api'
 
 export const commentsAPI = createApi({
     reducerPath: "commentsAPI",
 
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:4000/"
+        baseUrl: url
     }),
 
     endpoints: (builder) => ({

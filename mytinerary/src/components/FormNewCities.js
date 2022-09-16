@@ -3,6 +3,7 @@ import '../styles/NewCities.css'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import url from "../api";
 
 function Input({ label, name }) {
     return (
@@ -33,7 +34,7 @@ export default function FormNewCities() {
 
         if (city.population >= 1000 && city.population <= 100000000) {
             // enviar city al backend post http://localhost:4000/cities
-            axios.post('http://localhost:4000/cities', city).then(res => {
+            axios.post(url + '/cities', city).then(res => {
                 // si responde 201 decir que la ciudad fue creada con exito
                 toast.success('You have created a new city!!', {
                     position: "top-center",

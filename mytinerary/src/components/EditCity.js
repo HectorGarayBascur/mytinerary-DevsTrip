@@ -49,7 +49,7 @@ export default function EditCity() {
 
         const id = formData.get('cityid');
         if (id) {
-            axios.patch('http://localhost:4000/cities/' + id, city).then((res) => {
+            axios.patch(url + '/cities/' + id, city).then((res) => {
                 toast.success('You have edited a city!!', {
                     position: "top-center",
                     autoClose: 5000,
