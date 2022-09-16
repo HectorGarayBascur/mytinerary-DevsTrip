@@ -1,9 +1,15 @@
 import { useEffect, useRef } from "react";
 import * as jose from "jose";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useGetLoginMutation } from "../features/usersAPI";
+import { setCredentials } from "../features/authSlice";
 
 export default function SignUpGoogle() {
-  let [user] = useGetLoginMutation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  let [userlog] = useGetLoginMutation();
   const buttonDiv = useRef(null);
   //  console.log(buttonDiv.current);
 
@@ -19,7 +25,34 @@ export default function SignUpGoogle() {
     };
 
     console.log(data);
-    await user(data);
+    try {
+      const response = await userlog(data).unwrap();
+      const user = response.response.user;
+      console.log('mirar aca', user)
+      dispatch(setCredentials({ user }));
+      localStorage.setItem("user", JSON.stringify(user));
+      toast.success(response.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+      navigate("/");
+    } catch (error) {
+      console.log(error)
+      toast.error(error.data?.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   }
 
   useEffect(() => {
