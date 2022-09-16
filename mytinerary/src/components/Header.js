@@ -17,10 +17,10 @@ const pages = [
   // {_id:4, name: 'UnderConstruction', to: '/underconstruction' },
 ]
 
-if(user){
- pages.push({ _id: 6, name: 'MyTineraries', to: '/mytineraries/'+ user.id })
-}else{
- pages.push({ _id: 6, name: 'MyTineraries', to: '/mytineraries/'})
+if (user) {
+  pages.push({ _id: 6, name: 'MyTineraries', to: '/mytineraries/' + user.id })
+} else {
+  pages.push({ _id: 6, name: 'MyTineraries', to: '/mytineraries/' })
 }
 console.log(pages)
 const link = (page) => <LinkRouter className='Header-link' key={page._id} to={page.to}>{page.name}</LinkRouter>

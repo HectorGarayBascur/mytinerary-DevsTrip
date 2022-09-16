@@ -65,7 +65,7 @@ export default function SignUpGoogle() {
     });
     google.accounts.id.renderButton(
       buttonDiv.current,
-      { theme: "outline", size: "medium", text: "signin_with" } // customization attributes
+      { theme: "outline", size: "medium", text: "signin_with", locale: "en" } // customization attributes
     );
   }, []);
   return (
