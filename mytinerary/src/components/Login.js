@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link as LinkRouter } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import {
   useGetSignOutMutation,
@@ -25,18 +26,27 @@ export default function LogIn() {
   const [open, setOpen] = useState(false);
 
   const [signOut] = useGetSignOutMutation();
-  console.log(currentUser);
+  // console.log(currentUser);
   const handleLogOut = async (e) => {
     try {
       let object = {
         logged: false,
         id: currentUser.id,
       };
-      await signOut(object);
+      let response = await signOut(object);
+      console.log(response);
       dispatch(setCredentials({ user: null }));
 
       localStorage.removeItem("user");
-
+      toast.success(response.data.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
       // window.location.reload();
     } catch (error) {
       console.log(error);
