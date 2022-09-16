@@ -15,8 +15,6 @@ export default function City() {
     const { data: city } = useGetCityQuery(id)
     const { data: itineraries } = useGetItinerariesQuery(id)
     const date = new Date(city?.response.fundation)
-    console.log(date.getFullYear())
-    console.log(id)
 
     // useEffect(() => {
     //     axios.get(url + '/cities/' + id)
@@ -30,7 +28,6 @@ export default function City() {
     //     axios.get('http://localhost:4000/itineraries/6318db2de6491b05f8a4be7a')
     //         .then(response => {
     //             setitineraries(response.data.response)
-    //             console.log(response.data.response)
     //         })
     // }, []);
 
@@ -72,7 +69,6 @@ export default function City() {
                 </div>
             </div>
             {itineraries?.response.map(itinerary =>
-                // console.log(itinerary)
                 <Itinerary itinerary={itinerary} key={itinerary._id} />
             )
             }

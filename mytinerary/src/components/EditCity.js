@@ -28,7 +28,6 @@ export default function EditCity() {
     useEffect(() => {
         axios.get(url + '/cities')
             .then(response => {
-                console.log(response)
                 setItems(response.data)
             })
     }, []);
@@ -76,7 +75,6 @@ export default function EditCity() {
 
     const handleSelect = (event) => {
         const selectedId = event.target.value;
-        console.log(selectedId)
         items.forEach(item => {
             if (item._id == selectedId) {
                 const form = formRef.current;

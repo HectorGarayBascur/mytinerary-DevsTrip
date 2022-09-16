@@ -13,7 +13,6 @@ export default function Itinerary({ itinerary }) {
     const { data: activities } = useGetActivitiesQuery(itinerary._id)
     const { data: users } = useGetUsersQuery(itinerary._id)
     const { data: comments } = useGetCommentsQuery(itinerary._id)
-    // console.log(comments, 'mirar aqui');
 
 
     const [open, setOpen] = useState(false)
@@ -39,7 +38,6 @@ export default function Itinerary({ itinerary }) {
             </div>
             <div className='container-activities'>
                 {activities?.response.map(activity =>
-                    // console.log(itinerary)
                     <Activities activity={activity} key={activity._id} />
                 )
                 }

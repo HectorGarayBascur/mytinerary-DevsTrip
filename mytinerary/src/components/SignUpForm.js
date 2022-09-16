@@ -37,10 +37,8 @@ export default function SignUpForm({ showRole }) {
     try {
       const response = await newUser(formUser).unwrap();
       const user = response.response.user;
-      console.log('mirar aca', user)
       dispatch(setCredentials({ user }));
       localStorage.setItem("user", JSON.stringify(user));
-      console.log(response.message)
       toast.success(response.message, {
         position: "top-center",
         autoClose: 5000,
@@ -52,7 +50,7 @@ export default function SignUpForm({ showRole }) {
       });
       navigate("/signin");
     } catch (error) {
-      console.log(error)
+      console.error(error);
       toast.error(error.data?.message, {
         position: "top-center",
         autoClose: 5000,
