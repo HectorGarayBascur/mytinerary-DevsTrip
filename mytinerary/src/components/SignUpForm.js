@@ -13,7 +13,7 @@ function Input({ label, name }) {
   );
 }
 
-export default function SignUpForm() {
+export default function SignUpForm({ showRole }) {
   const form = useRef();
   const [newUser] = useGetNewUserMutation();
   const handleSubmit = async (e) => {
@@ -27,7 +27,7 @@ export default function SignUpForm() {
       photo: formData.get("photo"),
       password: formData.get("password"),
       from: "form",
-      role: "user",
+      role: formData.get("role"),
     };
     await newUser(user);
 
@@ -45,6 +45,10 @@ export default function SignUpForm() {
         <Input label="Country:" name="country" />
         <Input label="Photo URL:" name="photo" />
         <Input label="Password:" name="password" />
+        <select name='role'>
+          <option value="user">user</option>
+          {showRole ? <option value="admin">admin</option> : null}
+        </select>
         <button type="submit" onClick={handleSubmit}>
           Submit
         </button>
