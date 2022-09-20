@@ -2,6 +2,8 @@ import { useEffect, useState, useRef } from "react"
 import axios from 'axios'
 import '../styles/EditCities.css'
 import url from '../api'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Input({ label, name }) {
     return (
@@ -26,7 +28,6 @@ export default function EditCity() {
     useEffect(() => {
         axios.get(url + '/cities')
             .then(response => {
-                console.log(response)
                 setItems(response.data)
             })
     }, []);
@@ -47,18 +48,33 @@ export default function EditCity() {
 
         const id = formData.get('cityid');
         if (id) {
-            axios.patch('http://localhost:4000/cities/' + id, city).then((res) => {
-                alert(res.data.message);
+            axios.patch(url + '/cities/' + id, city).then((res) => {
+                toast.success('You have edited a city!!', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                });
             }).catch(error => {
                 console.error(error);
-                alert(error.response.data.message);
+                toast.error('Incorrect data', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
         }
     };
 
     const handleSelect = (event) => {
         const selectedId = event.target.value;
-        console.log(selectedId)
         items.forEach(item => {
             if (item._id == selectedId) {
                 const form = formRef.current;
@@ -82,6 +98,7 @@ export default function EditCity() {
             <Input label="Update Population:" name="population" />
             <Input label="Edit:" name="fundation" />
             <button type="submit" onClick={handleSubmit}>Submit</button>
+            <ToastContainer />
         </form>
     );
 }

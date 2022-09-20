@@ -25,7 +25,6 @@ export default function Cities() {
   // useEffect(() => {
   //   dispatch(fetchFromServer())
   // }, [])
-  // console.log('Cities', items)
   const [value, setValue] = useState("")
   // const inputSearch = useRef()
 
@@ -33,7 +32,6 @@ export default function Cities() {
   // useEffect(() => {
   //   axios.get(url + '/cities?city=' + value)
   //     .then(response => { setItems(response.data) })
-  //     .catch(error => console.log(error))
   // }, [value]);
 
   const valueCity = (event) => {
@@ -53,7 +51,6 @@ export default function Cities() {
     }
 
   });
-  console.log(filteredCities)
 
   // ref={inputSearch}
 
