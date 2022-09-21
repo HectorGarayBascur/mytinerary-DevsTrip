@@ -1,12 +1,11 @@
 import '../styles/Itinerary.css'
-import { useParams } from 'react-router-dom';
-import axios from 'axios'
 import Comments from './Comments';
 import Activities from './Activities';
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useGetActivitiesQuery } from '../features/activitiesAPI';
 import { useGetUsersQuery } from '../features/usersAPI';
 import { useGetCommentsQuery } from '../features/commentsAPI';
+import NewComment from './NewComment';
 
 
 export default function Itinerary({ itinerary }) {
@@ -49,6 +48,7 @@ export default function Itinerary({ itinerary }) {
                     {
                         open
                             ? <div className='container3-comments'>
+                                <NewComment />
                                 {
                                     comments?.response.length === 0
                                         ? <div>No comments</div>
