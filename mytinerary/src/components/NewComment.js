@@ -18,7 +18,6 @@ export default function NewComment() {
     const form = useRef();
     const dispatch = useDispatch();
     const [userComment] = useGetNewCommentMutation();
-    // const auth = useAuth();
     const { user: currentUser } = useAuth();
 
     const token = (localStorage.getItem('token'));

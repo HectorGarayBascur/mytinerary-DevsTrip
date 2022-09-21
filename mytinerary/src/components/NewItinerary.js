@@ -5,8 +5,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import url from "../api";
 import "../styles/SignUp.css"
+import { useGetCityQuery } from '../features/citiesAPI'
 
-const user = JSON.parse(localStorage.getItem('user'))
+import { useParams } from 'react-router-dom';
 // const city = JSON.parse(localStorage.getItem('city'))
 
 function Input({ label, name }) {
@@ -20,6 +21,10 @@ function Input({ label, name }) {
 
 export default function NewItinerary() {
 
+    const { id } = useParams()
+    const { data: cityId } = useGetCityQuery(id);
+    const user = JSON.parse(localStorage.getItem('user'))
+
     const formRef = useRef();
 
     const handleSubmit = (event) => {
@@ -30,7 +35,7 @@ export default function NewItinerary() {
             price: formData.get('price'),
             duration: formData.get('duration'),
             tags: formData.get('tags'),
-            city: formData.get('city'),
+            city: id,
             user: user.id,
         };
 
@@ -57,19 +62,20 @@ export default function NewItinerary() {
                 progress: undefined,
             });
         })
+        formRef.current.reset();
     }
 
-    return (
-        <div className='form-newcity'>
-            <form ref={formRef} action="#" className="inputs-class">
-                <Input label="Name:" name="name" />
-                <Input label="Price:" name="price" />
-                <Input label="Duration:" name="duration" />
-                <Input label="Tags:" name="tags" />
-                <Input label="City:" name="city" />
-                <button type="submit" onClick={handleSubmit}> Submit </button>
-                <ToastContainer />
-            </form>
-        </div>
-    );
+    if(user){
+        return (
+            <div className='form-newcity'>
+                <form ref={formRef} action="#" className="inputs-class">
+                    <Input label="Name:" name="name" />
+                    <Input label="Price:" name="price" />
+                    <Input label="Duration:" name="duration" />
+                    <Input label="Tags:" name="tags" />
+                    <button type="submit" onClick={handleSubmit}> Submit </button>
+                </form>
+            </div>
+        );
+    }
 }

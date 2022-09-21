@@ -1,36 +1,19 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import '../styles/City.css'
 import { Link as LinkRouter } from 'react-router-dom';
-import axios from 'axios';
 import Itinerary from '../components/Itinerary';
 import url from '../api';
 import { useGetCityQuery } from '../features/citiesAPI';
 import { useGetItinerariesQuery } from '../features/itinerariesAPI';
-import BtnNewItinerary from '../components/BtnNewItinerary';
+
+import NewItinerary from '../components/NewItinerary';
 
 
 export default function City() {
     const { id } = useParams()
-    // const [cityData, setCityData] = useState({})
     const { data: city } = useGetCityQuery(id)
     const { data: itineraries } = useGetItinerariesQuery(id)
     const date = new Date(city?.response.fundation)
-
-    // useEffect(() => {
-    //     axios.get(url + '/cities/' + id)
-    //         .then(response => {
-    //             setCityData(response.data.response)
-    //         })
-    // }, [])
-
-    // const [itineraries, setitineraries] = useState([])
-    // useEffect(() => {
-    //     axios.get('http://localhost:4000/itineraries/6318db2de6491b05f8a4be7a')
-    //         .then(response => {
-    //             setitineraries(response.data.response)
-    //         })
-    // }, []);
 
     return (
         <div>
@@ -68,7 +51,7 @@ export default function City() {
                         </div>
                     </div>
                 </div>
-                <BtnNewItinerary />
+                <NewItinerary />
             </div>
             {itineraries?.response.map(itinerary =>
                 <Itinerary itinerary={itinerary} key={itinerary._id} />
