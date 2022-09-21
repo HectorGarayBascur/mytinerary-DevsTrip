@@ -1,16 +1,18 @@
 import '../styles/Itinerary.css'
+
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import Comments from './Comments';
 import Activities from './Activities';
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useGetActivitiesQuery } from '../features/activitiesAPI';
 import { useGetUsersQuery } from '../features/usersAPI';
 import { useGetOneItineraryMutation, useGetlikeUserMutation } from '../features/itinerariesAPI';
 import { useGetCommentsQuery } from '../features/commentsAPI';
 import { Like } from '../components/Like'
 import { useAuth } from '../hooks/useAuth';
+import NewComment from './NewComment';
 
 
 export default function Itinerary({ itinerary }) {
@@ -105,6 +107,7 @@ export default function Itinerary({ itinerary }) {
                     {
                         open
                             ? <div className='container3-comments'>
+                                <NewComment />
                                 {
                                     comments?.response.length === 0
                                         ? <div>No comments</div>

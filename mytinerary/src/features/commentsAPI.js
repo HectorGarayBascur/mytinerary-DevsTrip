@@ -14,10 +14,20 @@ export const commentsAPI = createApi({
         }),
         getComments: builder.query({
             query: (id) => '/comments/' + id
-        })
+        }),
+        getNewComment: builder.mutation({
+            query(comment) {
+              return {
+                url: "/comments",
+                method: "POST",
+                body: comment,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+              };
+            },
+          }),
     })
 
 })
 
 export default commentsAPI
-export const { useGetAllCommentsQuery, useGetCommentsQuery } = commentsAPI
+export const { useGetAllCommentsQuery, useGetCommentsQuery, useGetNewCommentMutation } = commentsAPI

@@ -7,6 +7,7 @@ import Itinerary from '../components/Itinerary';
 import url from '../api';
 import { useGetCityQuery } from '../features/citiesAPI';
 import { useGetItinerariesQuery } from '../features/itinerariesAPI';
+import BtnNewItinerary from '../components/BtnNewItinerary';
 
 
 export default function City() {
@@ -67,6 +68,7 @@ export default function City() {
                         </div>
                     </div>
                 </div>
+                <BtnNewItinerary />
             </div>
             {itineraries?.response.map(itinerary =>
                 <Itinerary itinerary={itinerary} key={itinerary._id} />
