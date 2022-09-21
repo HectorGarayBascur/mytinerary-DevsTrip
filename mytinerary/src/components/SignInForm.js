@@ -40,9 +40,12 @@ export default function SignInForm() {
     };
     try {
       const response = await userlog(loginDataUser).unwrap();
+      const token = response.response.token;
       const user = response.response.user;
-      dispatch(setCredentials({ user }));
+
+      dispatch(setCredentials({ user, token }));
       localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", token);
       toast.success(response.message, {
         position: "top-center",
         autoClose: 5000,
