@@ -17,16 +17,20 @@ function Input({ label, name }) {
 function Select({ name, items, onChange }) {
     return (
         <select name={name} onChange={onChange} defaultValue="empty">
-            <option disabled value="empty">Select the City to Edit</option>
-            {items.map((item) => (<option key={item._id} value={item._id}>{item.city}</option>))}
+            <option disabled value="empty">Select the Itinerary to Edit</option>
+            {items?.map((item) => 
+            (<option key={item._id} value={item._id}>{item.name}</option>))
+            }
         </select>
     )
 }
 
-export default function EditCity() {
+export default function EditItinerary() {
+
     const [items, setItems] = useState([])
+
     useEffect(() => {
-        axios.get(url + '/cities')
+        axios.get(url + '/itineraries')
             .then(response => {
                 setItems(response.data)
             })
@@ -34,22 +38,25 @@ export default function EditCity() {
 
     const formRef = useRef();
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(formRef.current);
-        const city = {
+        const itinerary = {
+            name: formData.get('name'),
+            price: formData.get('price'),
+            duration: formData.get('duration'),
+            tags: formData.get('tags'),
+            user: user.id,
             city: formData.get('city'),
-            country: formData.get('country'),
-            photo: formData.get('photo'),
-            description: formData.get('description'),
-            population: formData.get('population'),
-            fundation: formData.get('fundation'),
         };
 
-        const id = formData.get('cityid');
+        const id = formData.get('itineraryid');
+
         if (id) {
-            axios.patch(url + '/cities/' + id, city).then((res) => {
-                toast.success('You have edited a city!!', {
+            axios.patch(url + '/itineraries?user=' + id, itinerary).then((res) => {
+                toast.success('You have edited a itinerary!!', {
                     position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -86,19 +93,21 @@ export default function EditCity() {
                 });
             }
         });
-    }
+    };
 
     return (
-        <form ref={formRef} action="#" className="inputs-class">
-            <Select name="cityid" items={items} onChange={handleSelect} />
-            <Input label="New City:" name="city" />
-            <Input label="New Country:" name="country" />
-            <Input label="New Photo:" name="photo" />
-            <Input label="New description:" name="description" />
-            <Input label="Update Population:" name="population" />
-            <Input label="Edit:" name="fundation" />
-            <button type="submit" onClick={handleSubmit}>Submit</button>
-            <ToastContainer />
-        </form>
-    );
+        <div className='form-newcity'>
+            <form ref={formRef} action="#" className="inputs-class">
+                <Select name="itineraryid" items={items} onChange={handleSelect} />
+                <Input label="Name:" name="name" />
+                <Input label="Price:" name="price" />
+                <Input label="Likes:" name="like" />
+                <Input label="Duration:" name="duration" />
+                <Input label="Tags:" name="tags" />
+                <Input label="City:" name="city" />
+                <button type="submit" onClick={handleSubmit}>Submit</button>
+                <ToastContainer />
+            </form>
+        </div>
+    )
 }
