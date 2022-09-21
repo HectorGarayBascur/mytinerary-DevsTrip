@@ -111,6 +111,31 @@
     fill: #FFFFFF;
 }
 
+.container-btn-mod-itinerary{
+    /* background-color: #000000; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-mod-itinerary {
+	background-color:#73B1BF;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:10px 25px;
+	text-decoration:none;
+    margin-top: 20px;
+}
+
+.btn-mod-itinerary:hover {
+    filter: grayscale(70%);
+}
+
 @keyframes point {
     0% {
         transform: translateX(0);
