@@ -36,6 +36,7 @@ export default function LogIn() {
       dispatch(setCredentials({ user: null }));
 
       localStorage.removeItem("user");
+      localStorage.removeItem("token");
       toast.success(response.data.message, {
         position: "top-center",
         autoClose: 5000,
