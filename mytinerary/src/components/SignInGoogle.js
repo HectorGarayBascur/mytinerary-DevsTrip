@@ -24,8 +24,10 @@ export default function SignUpGoogle() {
     try {
       const response = await userlog(data).unwrap();
       const user = response.response.user;
-      dispatch(setCredentials({ user }));
+      const token = response.response.token;
+      dispatch(setCredentials({ user, token }));
       localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", token);
       toast.success(response.message, {
         position: "top-center",
         autoClose: 5000,
