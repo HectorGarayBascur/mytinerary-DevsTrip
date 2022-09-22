@@ -1,6 +1,6 @@
 import EditItinerary from "../components/EditItinerary"
 
-export default function ModifyItinerary() {
+export default function PatchItinerary() {
   return (
     <div>
         <EditItinerary />

@@ -15,7 +15,7 @@ import MyTineraries from './pages/MyTineraries';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import NewItinerary from './components/NewItinerary';
-import ModifyItinerary from './pages/ModifyItinerary';
+import PatchItinerary from './pages/PatchItinerary';
 import { useAuth } from './hooks/useAuth';
 import { setCredentials } from './features/authSlice';
 
@@ -52,7 +52,7 @@ function App() {
             <Route path='/newusers' element={admin ? <SignUp showAdminForm={true} /> : <UnderConstruction />} />
             <Route path='*' element={<UnderConstruction />} />
             <Route path='/mytineraries/:id' element={currentUser ? <MyTineraries /> : <UnderConstruction />} />
-            <Route path='/modifyitinerary' element={currentUser ? <ModifyItinerary /> : <UnderConstruction />} />
+            <Route path='/patchitinerary' element={currentUser ? <PatchItinerary /> : <UnderConstruction />} />
           </Routes>
         </FooterLayout>
       </BrowserRouter>
