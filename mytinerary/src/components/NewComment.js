@@ -35,7 +35,9 @@ export default function NewComment({ id }) {
 
     try {
       const response = await userComment(dataComment).unwrap();
-      dispatch(setCredentials({ token }));
+      dispatch(setCredentials({ currentUser, token }));
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(currentUser));
       toast.success(response.message, {
         position: "top-center",
         autoClose: 5000,
