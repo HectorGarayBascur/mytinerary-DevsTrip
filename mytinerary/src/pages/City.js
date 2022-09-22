@@ -5,15 +5,25 @@ import Itinerary from '../components/Itinerary';
 import url from '../api';
 import { useGetCityQuery } from '../features/citiesAPI';
 import { useGetItinerariesQuery } from '../features/itinerariesAPI';
+import { useState, useEffect } from 'react'
 
 import NewItinerary from '../components/NewItinerary';
 
 
 export default function City() {
     const { id } = useParams()
+    const [reload, setReload] = useState(false)
     const { data: city } = useGetCityQuery(id)
-    const { data: itineraries } = useGetItinerariesQuery(id)
+    const { data: itineraries, refetch } = useGetItinerariesQuery(id)
     const date = new Date(city?.response.fundation)
+
+    function handleRefetch() {
+        setReload(!reload)
+    }
+    console.log(reload);
+    useEffect(() => {
+        refetch()
+    }, [reload])
 
     return (
         <div>
@@ -54,7 +64,7 @@ export default function City() {
                 <NewItinerary />
             </div>
             {itineraries?.response.map(itinerary =>
-                <Itinerary itinerary={itinerary} key={itinerary._id} />
+                <Itinerary itinerary={itinerary} key={itinerary._id} handleRefetch={handleRefetch} />
             )
             }
         </div>
