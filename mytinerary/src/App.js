@@ -14,7 +14,7 @@ import ScrollToTop from './components/ScrollToTop';
 import MyTineraries from './pages/MyTineraries';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
-import NewItinerary from './pages/NewItinerary';
+import NewItinerary from './components/NewItinerary';
 import ModifyItinerary from './pages/ModifyItinerary';
 import { useAuth } from './hooks/useAuth';
 import { setCredentials } from './features/authSlice';
@@ -52,7 +52,6 @@ function App() {
             <Route path='/newusers' element={admin ? <SignUp showAdminForm={true} /> : <UnderConstruction />} />
             <Route path='*' element={<UnderConstruction />} />
             <Route path='/mytineraries/:id' element={currentUser ? <MyTineraries /> : <UnderConstruction />} />
-            <Route path='/newitinerary' element={currentUser ? <NewItinerary /> : <UnderConstruction />} />
             <Route path='/modifyitinerary' element={currentUser ? <ModifyItinerary /> : <UnderConstruction />} />
           </Routes>
         </FooterLayout>

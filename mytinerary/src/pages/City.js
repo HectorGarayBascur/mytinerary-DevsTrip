@@ -1,13 +1,12 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import '../styles/City.css'
 import { Link as LinkRouter } from 'react-router-dom';
-import axios from 'axios';
 import Itinerary from '../components/Itinerary';
 import url from '../api';
 import { useGetCityQuery } from '../features/citiesAPI';
 import { useGetItinerariesQuery } from '../features/itinerariesAPI';
-import BtnNewItinerary from '../components/BtnNewItinerary';
+
+import NewItinerary from '../components/NewItinerary';
 
 
 export default function City() {
@@ -17,6 +16,7 @@ export default function City() {
     const { data: city } = useGetCityQuery(id)
     const { data: itineraries, refetch } = useGetItinerariesQuery(id)
     const date = new Date(city?.response.fundation)
+
 
     function handleRefetch() {
         setReload(!reload)
@@ -39,7 +39,6 @@ export default function City() {
     //             setitineraries(response.data.response)
     //         })
     // }, []);
-
     return (
         <div>
             <div className='container-card-details'>
@@ -76,7 +75,7 @@ export default function City() {
                         </div>
                     </div>
                 </div>
-                <BtnNewItinerary />
+                <NewItinerary />
             </div>
             {itineraries?.response.map(itinerary =>
                 <Itinerary itinerary={itinerary} key={itinerary._id} handleRefetch={handleRefetch} />

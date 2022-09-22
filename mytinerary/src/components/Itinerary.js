@@ -1,17 +1,18 @@
+
 import '../styles/Itinerary.css'
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import Comments from './Comments';
 import Activities from './Activities';
-import { useState } from 'react'
 import { useGetActivitiesQuery } from '../features/activitiesAPI';
 import { useGetUsersQuery } from '../features/usersAPI';
 import { useGetOneItineraryMutation, useGetlikeUserMutation } from '../features/itinerariesAPI';
 import { useGetCommentsQuery } from '../features/commentsAPI';
 import { useAuth } from '../hooks/useAuth';
 import NewComment from './NewComment';
+import "../styles/Itinerary.css";
+import { useState, useEffect } from "react";
 
 
 export default function Itinerary({ itinerary, handleRefetch }) {
@@ -49,7 +50,7 @@ export default function Itinerary({ itinerary, handleRefetch }) {
         } catch (error) {
             console.log(error);
         }
-    }
+
 
     async function like() {
         if (localStorage.getItem('token')) {
@@ -67,51 +68,58 @@ export default function Itinerary({ itinerary, handleRefetch }) {
         console.log(handleRefetch);
         handleRefetch()
     }
+  }
 
-    const [open, setOpen] = useState(false)
-    const openComments = () => {
-        if (open === true) {
-            setOpen(false)
-        } else {
-            setOpen(true)
-        }
+  const [open, setOpen] = useState(false);
+  const openComments = () => {
+    if (open === true) {
+      setOpen(false);
+    } else {
+      setOpen(true);
     }
+  };
 
-    return (
-        <div className='container-padre-itinerary'>
-            <div className="data-card">
-                <h2>{itinerary.name}</h2>
-                <div className='data-p-d'>
-                    <p>Price: ${itinerary.price}</p>
-                    <p>Duration:{itinerary.duration}</p>
-                </div>
-                <p>likes{itinerary.likes}</p>
-                <p>tags{itinerary.tags}</p>
-            </div>
-            <div className='container-activities'>
-                {activities?.response.map(activity =>
-                    <Activities activity={activity} key={activity._id} />
-                )
-                }
-            </div>
+  return (
+    <div className="container-padre-itinerary">
+      <div className="data-card">
+        <h2>{itinerary.name}</h2>
+        <div className="data-p-d">
+          <p>Price: ${itinerary.price}</p>
+          <p>Duration:{itinerary.duration}</p>
+        </div>
+        <p>likes{itinerary.likes}</p>
+        <p>tags{itinerary.tags}</p>
+      </div>
+      <div className="container-activities">
+        {activities?.response.map((activity) => (
+          <Activities activity={activity} key={activity._id} />
+        ))}
+      </div>
 
-            <div className="container-comments">
-                <h2>Comments</h2>
-                <img className="icon-despleg" onClick={openComments} src="https://cdn-icons-png.flaticon.com/512/3519/3519316.png" alt="" width='25px'></img>
-                <div className='container2-comments'>
-                    {
-                        open
-                            ? <div className='container3-comments'>
-                                <NewComment />
-                                {
-                                    comments?.response.length === 0
-                                        ? <div>No comments</div>
-                                        : comments?.response.map(comment => <Comments comment={comment} key={comment._id} />)
-                                }
-                            </div>
-                            : null
-                    }
-                </div>
+      <div className="container-comments">
+        <h2>Comments</h2>
+        <img
+          className="icon-despleg"
+          onClick={openComments}
+          src="https://cdn-icons-png.flaticon.com/512/3519/3519316.png"
+          alt=""
+          width="25px"></img>
+        <div className="container2-comments">
+          {open ? (
+            <div className="container3-comments">
+              <NewComment id={itinerary._id} />
+
+              {comments?.response.length === 0 ? (
+                <div>No comments</div>
+              ) : (
+                comments?.response.map((comment) => (
+                  <Comments
+                    comment={comment}
+                    itinerary={itinerary._id}
+                    key={comment._id}
+                  />
+                ))
+              )}
             </div>
             <img src={image} onClick={like} className='Like-button' alt='like' />
             {likeCount}
@@ -122,3 +130,4 @@ export default function Itinerary({ itinerary, handleRefetch }) {
 // Itinerary.defaultProps = {
 //     handleRefetch: () => { }
 // }
+
