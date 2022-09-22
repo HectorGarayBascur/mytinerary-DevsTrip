@@ -11,34 +11,10 @@ import NewItinerary from '../components/NewItinerary';
 
 export default function City() {
     const { id } = useParams()
-    const [reload, setReload] = useState(false)
-    // const [cityData, setCityData] = useState({})
     const { data: city } = useGetCityQuery(id)
-    const { data: itineraries, refetch } = useGetItinerariesQuery(id)
+    const { data: itineraries } = useGetItinerariesQuery(id)
     const date = new Date(city?.response.fundation)
 
-
-    function handleRefetch() {
-        setReload(!reload)
-    }
-    console.log(reload);
-    useEffect(() => {
-        refetch()
-    }, [reload])
-    // useEffect(() => {
-    //     axios.get(url + '/cities/' + id)
-    //         .then(response => {
-    //             setCityData(response.data.response)
-    //         })
-    // }, [])
-
-    // const [itineraries, setitineraries] = useState([])
-    // useEffect(() => {
-    //     axios.get('http://localhost:4000/itineraries/6318db2de6491b05f8a4be7a')
-    //         .then(response => {
-    //             setitineraries(response.data.response)
-    //         })
-    // }, []);
     return (
         <div>
             <div className='container-card-details'>
@@ -78,7 +54,7 @@ export default function City() {
                 <NewItinerary />
             </div>
             {itineraries?.response.map(itinerary =>
-                <Itinerary itinerary={itinerary} key={itinerary._id} handleRefetch={handleRefetch} />
+                <Itinerary itinerary={itinerary} key={itinerary._id} />
             )
             }
         </div>
