@@ -12,11 +12,19 @@ import BtnNewItinerary from '../components/BtnNewItinerary';
 
 export default function City() {
     const { id } = useParams()
+    const [reload, setReload] = useState(false)
     // const [cityData, setCityData] = useState({})
     const { data: city } = useGetCityQuery(id)
-    const { data: itineraries } = useGetItinerariesQuery(id)
+    const { data: itineraries, refetch } = useGetItinerariesQuery(id)
     const date = new Date(city?.response.fundation)
 
+    function handleRefetch() {
+        setReload(!reload)
+    }
+    console.log(reload);
+    useEffect(() => {
+        refetch()
+    }, [reload])
     // useEffect(() => {
     //     axios.get(url + '/cities/' + id)
     //         .then(response => {
@@ -71,7 +79,7 @@ export default function City() {
                 <BtnNewItinerary />
             </div>
             {itineraries?.response.map(itinerary =>
-                <Itinerary itinerary={itinerary} key={itinerary._id} />
+                <Itinerary itinerary={itinerary} key={itinerary._id} handleRefetch={handleRefetch} />
             )
             }
         </div>
