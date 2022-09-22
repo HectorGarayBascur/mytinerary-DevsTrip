@@ -54,7 +54,7 @@
     transition: opacity .45s ease, transform .5s ease;
 }
 
-.data-p-d {
+.data-p-d{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -111,7 +111,7 @@
     fill: #FFFFFF;
 }
 
-.container-btn-mod-itinerary {
+.container-btn-mod-itinerary{
     /* background-color: #000000; */
     display: flex;
     align-items: center;
@@ -119,16 +119,16 @@
 }
 
 .btn-mod-itinerary {
-    background-color: #73B1BF;
-    border-radius: 8px;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 10px 25px;
-    text-decoration: none;
+	background-color:#73B1BF;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:10px 25px;
+	text-decoration:none;
     margin-top: 20px;
 }
 
@@ -144,9 +144,4 @@
     100% {
         transform: translateX(.125em);
     }
-}
-
-.Like-button {
-    width: 1.5rem;
-    height: 1.5rem;
 }
