@@ -1,5 +1,5 @@
 import '../styles/Itinerary.css'
-
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import { useSelector } from 'react-redux'
@@ -10,12 +10,11 @@ import { useGetActivitiesQuery } from '../features/activitiesAPI';
 import { useGetUsersQuery } from '../features/usersAPI';
 import { useGetOneItineraryMutation, useGetlikeUserMutation } from '../features/itinerariesAPI';
 import { useGetCommentsQuery } from '../features/commentsAPI';
-import { Like } from '../components/Like'
 import { useAuth } from '../hooks/useAuth';
 import NewComment from './NewComment';
 
 
-export default function Itinerary({ itinerary }) {
+export default function Itinerary({ itinerary, handleRefetch }) {
     const { data: activities } = useGetActivitiesQuery(itinerary._id)
     const { data: users } = useGetUsersQuery(itinerary._id)
     const { data: comments } = useGetCommentsQuery(itinerary._id)
@@ -28,27 +27,24 @@ export default function Itinerary({ itinerary }) {
     // const [data, setData] = useState({})
     const [image, setImage] = useState('')
     const [reload, setReload] = useState(true)
+    let likeCount = itinerary.like.length
 
     useEffect(() => {
-        getItinerary()
+        getItinerary();
     }, [reload])
 
     async function getItinerary() {
         try {
             let res = await getOneItinerary(itinerary._id)
-            console.log('id del itinerario', itinerary._id);
             if (res.data?.success) {
-                console.log(res.data.response.like.includes(currentUser.id))
-                if (res.data.response.like.includes(currentUser.id)) {
-                    console.log('sin like')
+                if (res.data.response.like.includes(currentUser?.id)) {
                     setImage('/like_hearts1.png')
                 } else {
-                    console.log('agregar like')
                     setImage('/like_hearts2.png')
                 }
                 // setData(res.data.response)
             } else {
-                console.log(res.error)
+                setImage('/like_hearts2.png')
             }
         } catch (error) {
             console.log(error);
@@ -56,12 +52,9 @@ export default function Itinerary({ itinerary }) {
     }
 
     async function like() {
-        console.log('id ciudad', id, 'id usuario', currentUser.id)
         if (localStorage.getItem('token')) {
-            console.log(localStorage.getItem('token'));
             try {
                 let res = await likeDislike(itinerary._id)
-                console.log(res.data?.success)
                 if (res.data?.success) {
                     setReload(!reload)
                 } else {
@@ -71,6 +64,8 @@ export default function Itinerary({ itinerary }) {
                 console.log(error)
             }
         }
+        console.log(handleRefetch);
+        handleRefetch()
     }
 
     const [open, setOpen] = useState(false)
@@ -118,7 +113,12 @@ export default function Itinerary({ itinerary }) {
                     }
                 </div>
             </div>
-            <img src={image} onClick={like} className='Detail-button' alt='like' />
+            <img src={image} onClick={like} className='Like-button' alt='like' />
+            {likeCount}
         </div>
     )
 }
+
+// Itinerary.defaultProps = {
+//     handleRefetch: () => { }
+// }
