@@ -25,6 +25,15 @@ export const commentsAPI = createApi({
         };
       },
     }),
+    deleteComment: builder.mutation({
+      query(id) {
+        return {
+          url: "/comments/" + id,
+          method: "DELETE",
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        };
+      },
+    }),
   }),
 });
 
@@ -33,4 +42,5 @@ export const {
   useGetAllCommentsQuery,
   useGetCommentsQuery,
   useGetNewCommentMutation,
+  useDeleteCommentMutation,
 } = commentsAPI;
