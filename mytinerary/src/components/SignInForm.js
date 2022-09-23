@@ -9,11 +9,11 @@ import { useAuth } from "../hooks/useAuth";
 import { setCredentials } from "../features/authSlice";
 import "react-toastify/dist/ReactToastify.css";
 
-function Input({ label, name }) {
+function Input({ label, name, type }) {
   return (
     <label className="form-label">
       {label}
-      <input name={name} />
+      <input name={name} type={type} />
     </label>
   );
 }
@@ -76,7 +76,7 @@ export default function SignInForm() {
     <div>
       <form className="form-class" ref={form}>
         <Input label="Mail:" name="mail" />
-        <Input label="Password:" name="password" />
+        <Input label="Password:" name="password" type="password" />
 
         <button type="submit" onClick={handleSubmit}>
           Login!
