@@ -21,7 +21,7 @@ export default function Mytineraries() {
 
   return (
     <div className="containerMain">
-      <BtnModifyItinerary />
+      {itineraries?.response.length > 0 ? <BtnModifyItinerary /> : null}
       {itineraries?.response.length > 0 ? itineraries?.response.map(itinerary =>
         <Itinerary itinerary={itinerary} key={itinerary._id} handleRefetch={handleRefetch} />
       ) : <div className="mssgMytinerary">
