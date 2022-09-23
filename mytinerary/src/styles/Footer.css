@@ -1,6 +1,6 @@
 .footStyles {
     background-color: #8C4F2B;
-    min-height: 0;
+    min-height: 15vh;
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
@@ -27,21 +27,23 @@
     justify-content: center;
 }
 
-.p-footer-nav, .btn-scroll{
+.p-footer-nav,
+.btn-scroll {
     text-decoration: none;
 }
 
-.btn-scroll{
+.btn-scroll {
     color: #73B1BF;
     font-weight: bolder;
     font-size: 20px;
 }
 
-.btn-scroll:hover, .p-footer-nav:hover{
-    color:#73B1BF
+.btn-scroll:hover,
+.p-footer-nav:hover {
+    color: #73B1BF
 }
 
-.p-footer-nav{
+.p-footer-nav {
     color: white;
 }
 
@@ -52,22 +54,22 @@
     color: white;
 }
 
-.bi-whatsapp:hover{
+.bi-whatsapp:hover {
     color: #73B1BF;
     cursor: pointer;
 }
 
-.bi-twitter:hover{
+.bi-twitter:hover {
     color: #73B1BF;
     cursor: pointer;
 }
 
-.bi-instagram:hover{
+.bi-instagram:hover {
     color: #73B1BF;
     cursor: pointer;
 }
 
-.scroll-top{
+.scroll-top {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,15 +77,15 @@
 
 }
 
-.icon-top{
+.icon-top {
     width: 2rem;
     height: 20px;
     cursor: pointer;
     margin-bottom: 8px;
 }
 
-@media only screen and (max-width: 560px){
-    .footStyles{
+@media only screen and (max-width: 560px) {
+    .footStyles {
         font-size: 12px;
     }
 }
