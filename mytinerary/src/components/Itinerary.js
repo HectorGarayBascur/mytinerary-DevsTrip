@@ -118,15 +118,15 @@ export default function Itinerary({ itinerary, handleRefetch }) {
     return (
         <div className="container-padre-itinerary">
             {currentUser?.id === itinerary.user?._id && (
-                <button onClick={handleDelete}>Delete</button>)}
+                <img src="https://cdn-icons-png.flaticon.com/512/3299/3299921.png" alt="" onClick={handleDelete} width="40px" className="deleteItinerary"></img>)}
             <div className="data-card">
                 <h2>{itinerary.name}</h2>
                 <div className="data-p-d">
                     <p>Price: ${itinerary.price}</p>
                     <p>Duration:{itinerary.duration}</p>
                 </div>
-                <p>likes{itinerary.likes}</p>
-                <p>tags{itinerary.tags}</p>
+                <p>likes: {likeCount}</p>
+                <p>{itinerary.tags}</p>
             </div>
             <div className="container-activities">
                 {activities?.response.map((activity) => (
@@ -163,8 +163,10 @@ export default function Itinerary({ itinerary, handleRefetch }) {
                     ) : null}
                 </div>
             </div>
-            <img src={image} onClick={like} className='Like-button' alt='like' />
-            {likeCount}
+            <div className="likeimg">
+                <img src={image} onClick={like} className='Like-button' alt='like' />
+                {likeCount}
+            </div>
         </div>
     );
 }
