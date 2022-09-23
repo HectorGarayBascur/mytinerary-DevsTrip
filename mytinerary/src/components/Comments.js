@@ -24,14 +24,14 @@ export default function Comments({ comment, refetchComments }) {
   const handleUpdate = async (e) => {
     console.log("hola");
     e.preventDefault();
-    const objcomment = {
+    const newComments = {
       id: comment._id,
       comment: newInput.current.value,
       user: comment.user,
       itinerary: comment.itinerary,
     };
-    await newComment(objcomment);
-    console.log(objcomment);
+    await newComment(newComments);
+    console.log(newComments);
 
     setOpen(false);
   };
