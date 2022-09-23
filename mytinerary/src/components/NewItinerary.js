@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import '../styles/NewCities.css'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
@@ -106,16 +106,34 @@ export default function NewItinerary({ handleRefetch }) {
 
     }
 
+    const [open, setOpen] = useState(false);
+    const openComments = () => {
+        if (open === true) {
+            setOpen(false);
+        } else {
+            setOpen(true);
+        }
+    };
+
     if (user) {
         return (
-            <div className='form-newcity'>
-                <form ref={formRef} action="#" className="inputs-class">
-                    <Input label="Name:" name="name" />
-                    <Input label="Price:" name="price" />
-                    <Input label="Duration:" name="duration" />
-                    <Input label="Tags:" name="tags" />
-                    <button type="submit" onClick={handleSubmit}> Submit </button>
-                </form>
+            <div>
+                <div className="container-title-new-itinerary">
+                    <h3>Create new Itinerary</h3>
+                    <h4>⬇</h4>
+                    <img className="icon-despleg" onClick={openComments} src="https://cdn-icons-png.flaticon.com/128/1287/1287078.png" alt="" width="25px"></img>
+                </div>
+                <div className='form-newitinerary'>
+                    {open ? (
+                        <form ref={formRef} action="#" className="inputs-class">
+                            <Input label="Name:" name="name" />
+                            <Input label="Price:" name="price" />
+                            <Input label="Duration:" name="duration" />
+                            <Input label="Tags:" name="tags" />
+                            <button type="submit" onClick={handleSubmit}> Submit </button>
+                        </form>
+                    ) : null}
+                </div>
             </div>
         );
     }
