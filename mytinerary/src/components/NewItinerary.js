@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import url from "../api";
 import "../styles/SignUp.css"
 import { useGetCityQuery } from '../features/citiesAPI'
+import { useGetNewItineraryMutation } from '../features/itinerariesAPI'
 
 import { useParams } from 'react-router-dom';
 // const city = JSON.parse(localStorage.getItem('city'))
@@ -19,15 +20,16 @@ function Input({ label, name }) {
     );
 }
 
-export default function NewItinerary() {
+export default function NewItinerary({ handleRefetch }) {
 
     const { id } = useParams()
     const { data: cityId } = useGetCityQuery(id);
+    const [newItinerary] = useGetNewItineraryMutation()
     const user = JSON.parse(localStorage.getItem('user'))
 
     const formRef = useRef();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData(formRef.current);
         const itinerary = {
@@ -38,21 +40,34 @@ export default function NewItinerary() {
             city: id,
             user: user.id,
         };
-
-        axios.post(url + '/itineraries', itinerary)
-        .then(res => {
-            toast.success('You have created a new itinerary!!', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: true,
-                progress: undefined,
-            });
-        }).catch(error => {
+        try {
+            const response = await newItinerary(itinerary).unwrap();
+            if (response.success) {
+                toast.success(response.message, {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                })
+                handleRefetch();
+            } else {
+                toast.error(response.data?.message, {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                })
+            }
+            ;
+        } catch (error) {
             console.error(error);
-            toast.error('Incorrect data', {
+            toast.error(error.data?.message, {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -61,11 +76,37 @@ export default function NewItinerary() {
                 draggable: true,
                 progress: undefined,
             });
-        })
+        }
         formRef.current.reset();
+        // form.current.reset();
+        // axios.post(url + '/itineraries', itinerary)
+        //     .then(res => {
+        //         toast.success('You have created a new itinerary!!', {
+        //             position: "top-center",
+        //             autoClose: 5000,
+        //             hideProgressBar: false,
+        //             closeOnClick: true,
+        //             pauseOnHover: false,
+        //             draggable: true,
+        //             progress: undefined,
+        //         });
+        //     }).catch(error => {
+        //         console.error(error);
+        //         toast.error('Incorrect data', {
+        //             position: "top-center",
+        //             autoClose: 5000,
+        //             hideProgressBar: false,
+        //             closeOnClick: true,
+        //             pauseOnHover: false,
+        //             draggable: true,
+        //             progress: undefined,
+        //         });
+        //     })
+        // formRef.current.reset();
+
     }
 
-    if(user){
+    if (user) {
         return (
             <div className='form-newcity'>
                 <form ref={formRef} action="#" className="inputs-class">
