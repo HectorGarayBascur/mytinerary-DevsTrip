@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link as LinkRouter } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 import {
   useGetSignOutMutation,
@@ -14,6 +15,7 @@ export default function LogIn() {
   const dispatch = useDispatch();
   const [logged, setLogged] = useState(false);
   const { user: currentUser } = useAuth();
+  const navigate = useNavigate();
 
   const openMenu = () => {
     if (open === true) {
@@ -46,6 +48,7 @@ export default function LogIn() {
         draggable: true,
         progress: undefined,
       });
+      navigate("/");
       // window.location.reload();
     } catch (error) {
       console.log(error);
@@ -60,7 +63,10 @@ export default function LogIn() {
 
   return (
     <div className="container-login">
-      <img onClick={openMenu} src="/icon-login.png" alt="" width="25px"></img>
+      {currentUser ?
+        <img onClick={openMenu} src={currentUser.photo} alt="" width="25px" className="photologin"></img>
+        :
+        <img onClick={openMenu} src="/icon-login.png" alt="" width="25px"></img>}
       <div>
         {open ? (
           <div>
@@ -69,7 +75,7 @@ export default function LogIn() {
                 <div>
                   <p>{currentUser.name}</p>
                 </div>
-                <div>
+                <div className="btndiv">
                   <button type="button" onClick={handleLogOut}>
                     Log out
                   </button>
