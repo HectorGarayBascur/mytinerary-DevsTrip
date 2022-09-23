@@ -10,6 +10,7 @@ import "../styles/Comments.css";
 
 export default function Comments({ comment, refetchComments }) {
     const { user: currentUser } = useAuth();
+    const admin = currentUser?.role === 'admin';
     const newInput = useRef("");
     console.log(comment);
     const [deleteComment] = useDeleteCommentMutation();
@@ -97,7 +98,7 @@ export default function Comments({ comment, refetchComments }) {
                     <p>{comment.comment}</p>
                 </div>
             </div>
-            {currentUser?.id === comment.user._id && (
+            {((currentUser?.id === comment.user._id) || admin) && (
                 <div className="commentedit">
                     <img src="https://cdn-icons-png.flaticon.com/512/3299/3299921.png" alt="" onClick={handleDelete} width="40px"></img>
                     <img src="https://cdn-icons-png.flaticon.com/512/2889/2889346.png" alt="" onClick={handleClick} width="40px"></img>
