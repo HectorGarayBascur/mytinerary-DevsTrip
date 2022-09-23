@@ -98,18 +98,18 @@ export default function Comments({ comment, refetchComments }) {
                 </div>
             </div>
             {currentUser?.id === comment.user._id && (
-                <div>
-                    <button onClick={handleDelete}>Delete</button>
-                    <button onClick={handleClick}>Modify</button>
+                <div className="commentedit">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3299/3299921.png" alt="" onClick={handleDelete} width="40px"></img>
+                    <img src="https://cdn-icons-png.flaticon.com/512/2889/2889346.png" alt="" onClick={handleClick} width="40px"></img>
                     {open ? (
-                        <form>
+                        <form className="formdesp">
                             <input
                                 type="text"
                                 name="comment"
                                 defaultValue={comment.comment}
                                 ref={newInput}
                             />
-                            <button onClick={handleUpdate}>Update now!</button>
+                            <img src="https://cdn-icons-png.flaticon.com/512/5290/5290058.png" alt="" onClick={handleUpdate} width="40px"></img>
                         </form>
                     ) : null}
                 </div>

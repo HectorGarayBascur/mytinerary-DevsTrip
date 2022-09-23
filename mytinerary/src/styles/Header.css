@@ -20,9 +20,32 @@
     background-color: #73B1BF;
 }
 
+.containerMain {
+    min-height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+.mssgMytinerary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container-logo>img {
     width: 6rem;
     height: 6rem;
+}
+
+.photologin {
+    border-radius: 50%;
+}
+
+.btndiv {
+    display: flex;
+    justify-content: center;
 }
 
 .H1-Welcome {
@@ -98,7 +121,7 @@
     display: none;
 }
 
-.container-hamburger img{
+.container-hamburger img {
     cursor: pointer;
 }
 

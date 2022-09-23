@@ -1,9 +1,38 @@
 import "../styles/Footer.css"
 import { Link as LinkRouter } from 'react-router-dom'
 import ScrollToTopPage from "./ScrollToTopPage"
+import { useAuth } from '../hooks/useAuth';
+
+const link = (page) => <LinkRouter className='Header-link' key={page._id} to={page.to}>{page.name}</LinkRouter>
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const pages = [
+    { _id: 1, name: 'Home', to: '/' },
+    { _id: 2, name: 'Cities', to: '/cities' },
+    { _id: 3, name: 'New Cities', to: '/newcities', private: true },
+    { _id: 4, name: 'New Users', to: '/newusers', private: true },
+    { _id: 5, name: 'Edit Cities', to: '/editcities', private: true },
+    // {_id:4, name: 'UnderConstruction', to: '/underconstruction' },
+  ];
+
+  const { user: currentUser } = useAuth();
+  const admin = currentUser?.role === 'admin';
+  if (currentUser) {
+    pages.push({ _id: 6, name: 'MyTineraries', to: '/mytineraries/' + currentUser.id })
+  }
+
+  const links = [];
+  pages.forEach(page => {
+    if (page.private) {
+      if (admin) {
+        links.push(page);
+      }
+    } else {
+      links.push(page);
+    }
+  });
+
   return (
 
     <div className='container footStyles'>
@@ -16,11 +45,7 @@ export default function Footer() {
 
       <div className='colTwo'>
         <ScrollToTopPage />
-        <LinkRouter to='/' className="p-footer-nav">Home</LinkRouter>
-        <LinkRouter to='/cities' className="p-footer-nav">Cities</LinkRouter>
-        <LinkRouter to='/newcities' className="p-footer-nav">New Cities</LinkRouter>
-        <LinkRouter to='/editCities' className="p-footer-nav">Edit Cities</LinkRouter>
-        <LinkRouter to='/mytineraries' className="p-footer-nav">MyTineraries</LinkRouter>
+        {links.map(link)}
       </div>
 
       <div className='colThree'>
