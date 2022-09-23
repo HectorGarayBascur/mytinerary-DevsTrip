@@ -13,7 +13,7 @@ import NewItinerary from '../components/NewItinerary';
 export default function City() {
     const { id } = useParams()
     const [reload, setReload] = useState(false)
-    const { data: city } = useGetCityQuery(id)
+    const { data: city, refetch: refetchCity } = useGetCityQuery(id)
     const { data: itineraries, refetch } = useGetItinerariesQuery(id)
     const date = new Date(city?.response.fundation)
 
@@ -61,7 +61,7 @@ export default function City() {
                         </div>
                     </div>
                 </div>
-                <NewItinerary />
+                <NewItinerary handleRefetch={handleRefetch} />
             </div>
             {itineraries?.response.map(itinerary =>
                 <Itinerary itinerary={itinerary} key={itinerary._id} handleRefetch={handleRefetch} />
