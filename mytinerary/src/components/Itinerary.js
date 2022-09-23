@@ -18,7 +18,7 @@ import NewComment from "./NewComment";
 export default function Itinerary({ itinerary, handleRefetch }) {
     const { data: activities } = useGetActivitiesQuery(itinerary._id);
     const { data: users } = useGetUsersQuery(itinerary._id);
-    const { data: comments } = useGetCommentsQuery(itinerary._id);
+    const { data: comments, refetch: refetchComments } = useGetCommentsQuery(itinerary._id);
     const { user: currentUser } = useAuth();
     console.log(currentUser);
     //creado para likes
@@ -106,7 +106,7 @@ export default function Itinerary({ itinerary, handleRefetch }) {
                 <div className="container2-comments">
                     {open ? (
                         <div className="container3-comments">
-                            <NewComment id={itinerary._id} />
+                            <NewComment id={itinerary._id} refetchComments={refetchComments} />
 
                             {comments?.response.length === 0 ? (
                                 <div>No comments</div>
@@ -116,6 +116,7 @@ export default function Itinerary({ itinerary, handleRefetch }) {
                                         comment={comment}
                                         itinerary={itinerary._id}
                                         key={comment._id}
+                                        refetchComments={refetchComments}
                                     />
                                 ))
                             )}

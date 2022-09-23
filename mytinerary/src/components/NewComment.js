@@ -14,7 +14,7 @@ function Input({ label, name }) {
   );
 }
 
-export default function NewComment({ id }) {
+export default function NewComment({ id, refetchComments }) {
   let itineraryId = id;
   const form = useRef();
   const dispatch = useDispatch();
@@ -35,9 +35,10 @@ export default function NewComment({ id }) {
 
     try {
       const response = await userComment(dataComment).unwrap();
-      dispatch(setCredentials({ currentUser, token }));
-      localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(currentUser));
+      // dispatch(setCredentials({ currentUser, token })); // solo necesario para cuando uno hace login o quiere actualizar el token/currentUser
+      // localStorage.setItem("token", token);
+      // localStorage.setItem("user", JSON.stringify(currentUser));
+      refetchComments();
       toast.success(response.message, {
         position: "top-center",
         autoClose: 5000,
@@ -62,6 +63,7 @@ export default function NewComment({ id }) {
     form.current.reset();
   };
 
+  // Si esta logeado, muestro esto
   if (token) {
     return (
       <div>
