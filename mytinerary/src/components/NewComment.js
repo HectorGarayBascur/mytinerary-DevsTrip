@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useAuth } from "../hooks/useAuth";
 import { setCredentials } from "../features/authSlice";
 import { useGetNewCommentMutation } from "../features/commentsAPI";
+import '../styles/Comments.css'
+
 
 function Input({ label, name }) {
   return (
@@ -66,9 +68,9 @@ export default function NewComment({ id, refetchComments }) {
   // Si esta logeado, muestro esto
   if (token) {
     return (
-      <div>
-        <form ref={form}>
-          <Input label="Comment:" name="comment" />
+      <div >
+        <form ref={form} className="newcomment">
+          <Input label="New comment:" name="comment" />
           <button type="submit" onClick={handleSubmit}>
             send
           </button>
