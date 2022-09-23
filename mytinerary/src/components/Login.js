@@ -60,10 +60,10 @@ export default function LogIn() {
 
   return (
     <div className="container-login">
-      <img onClick={openMenu} src="/icon-login.png" alt="" width="25px"></img>
+      <img className="icon-login" onClick={openMenu} src="/icon-login.png" alt="" width="25px"></img>
       <div>
         {open ? (
-          <div>
+          <div className="open-login">
             {currentUser ? (
               <>
                 <div>

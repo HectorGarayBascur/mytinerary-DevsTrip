@@ -5,7 +5,7 @@ import SignUpForm from '../components/SignUpForm'
 export default function SignUp(props) {
   return (
 
-    <div className='form-newcity'>
+    <div className='form-signUp'>
       <SignUpForm showRole={props.showAdminForm} />
     </div>
   )

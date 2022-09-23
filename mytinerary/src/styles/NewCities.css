@@ -21,6 +21,31 @@
     justify-content: space-between;
 }
 
+.form-label input{
+    margin-left: 10px;
+}
+
+.form-newitinerary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-title-new-itinerary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    gap: 1px
+}
+
+.container-title-new-itinerary h4{
+    margin-top: 0;
+}
+
 @media only screen and (max-width: 600px) {
     .inputs-class {
         padding: 1.5rem;
