@@ -7,11 +7,11 @@ import { useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Input({ label, name }) {
+function Input({ label, name, type }) {
   return (
     <label className="form-label">
       {label}
-      <input name={name} />
+      <input name={name} type={type} />
     </label>
   );
 }
@@ -74,7 +74,7 @@ export default function SignUpForm({ showRole }) {
         <Input label="Mail:" name="mail" />
         <Input label="Country:" name="country" />
         <Input label="Photo URL:" name="photo" />
-        <Input label="Password:" name="password" />
+        <Input label="Password:" name="password" type="password" />
         <select name='role'>
           <option value="user">user</option>
           {showRole ? <option value="admin">admin</option> : null}
