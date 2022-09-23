@@ -90,7 +90,7 @@ export default function Comments({ comment, refetchComments }) {
             <div className="container4-comments">
                 <div className="mail">
                     <h4>
-                        {comment.user.lastName} {comment.user.name}
+                        {comment.user.name}
                     </h4>
                 </div>
                 <div className="comment">
