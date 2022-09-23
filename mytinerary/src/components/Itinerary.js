@@ -7,20 +7,17 @@ import Activities from "./Activities";
 import { useState, useEffect } from "react";
 import { useGetActivitiesQuery } from "../features/activitiesAPI";
 import { useGetUsersQuery } from "../features/usersAPI";
-import {
-    useGetOneItineraryMutation,
-    useGetlikeUserMutation,
-} from "../features/itinerariesAPI";
+import { useGetOneItineraryMutation, useGetlikeUserMutation, useDeleteItineraryMutation } from "../features/itinerariesAPI";
 import { useGetCommentsQuery } from "../features/commentsAPI";
 import { useAuth } from "../hooks/useAuth";
 import NewComment from "./NewComment";
+import { toast } from "react-toastify";
 
 export default function Itinerary({ itinerary, handleRefetch }) {
     const { data: activities } = useGetActivitiesQuery(itinerary._id);
     const { data: users } = useGetUsersQuery(itinerary._id);
     const { data: comments, refetch: refetchComments } = useGetCommentsQuery(itinerary._id);
     const { user: currentUser } = useAuth();
-    console.log(currentUser);
     //creado para likes
     const { id } = useParams();
     let [getOneItinerary] = useGetOneItineraryMutation();
@@ -28,6 +25,8 @@ export default function Itinerary({ itinerary, handleRefetch }) {
     // const [data, setData] = useState({})
     const [image, setImage] = useState("");
     const [reload, setReload] = useState(true);
+    const [deleteItinerary] = useDeleteItineraryMutation();
+
     let likeCount = itinerary.like.length
 
     useEffect(() => {
@@ -78,8 +77,48 @@ export default function Itinerary({ itinerary, handleRefetch }) {
         }
     };
 
+    const handleDelete = async () => {
+        try {
+            const response = await deleteItinerary(itinerary._id).unwrap();
+            console.log('=>', response);
+            if (response?.success) {
+                handleRefetch();
+                toast.success(response.message, {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                });
+            } else {
+                toast.error(response.data?.message, {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                })
+            }
+        } catch (error) {
+            toast.error(error.data?.message, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            })
+        }
+    }
     return (
         <div className="container-padre-itinerary">
+            {currentUser?.id === itinerary.user?._id && (
+                <button onClick={handleDelete}>Delete</button>)}
             <div className="data-card">
                 <h2>{itinerary.name}</h2>
                 <div className="data-p-d">

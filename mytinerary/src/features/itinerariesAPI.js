@@ -30,10 +30,19 @@ export const itineraiesAPI = createApi({
                 method: 'PATCH',
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
             })
+        }),
+        deleteItinerary: builder.mutation({
+            query(id) {
+                return {
+                    url: "/itineraries/" + id,
+                    method: "DELETE",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                };
+            },
         })
     })
 
 })
 
 export default itineraiesAPI
-export const { useGetAllItinerariesQuery, useGetItinerariesQuery, useGetItinerariesUserQuery, useGetlikeUserMutation, useGetOneItineraryMutation } = itineraiesAPI
+export const { useGetAllItinerariesQuery, useGetItinerariesQuery, useGetItinerariesUserQuery, useGetlikeUserMutation, useGetOneItineraryMutation, useDeleteItineraryMutation } = itineraiesAPI
