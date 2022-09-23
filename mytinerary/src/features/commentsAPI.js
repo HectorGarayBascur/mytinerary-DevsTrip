@@ -34,6 +34,16 @@ export const commentsAPI = createApi({
         };
       },
     }),
+    modifyComment: builder.mutation({
+      query(body) {
+        return {
+          url: "comments/" + body.id,
+          method: "PATCH",
+          body: body,
+          headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+        };
+      },
+    }),
   }),
 });
 
@@ -43,4 +53,5 @@ export const {
   useGetCommentsQuery,
   useGetNewCommentMutation,
   useDeleteCommentMutation,
+  useModifyCommentMutation,
 } = commentsAPI;
